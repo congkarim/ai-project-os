@@ -29,13 +29,14 @@ Coding agent thường mất bối cảnh giữa các phiên, dễ dựa vào l�
 - Không gian lập kế hoạch tạm thời.
 - Nhật ký quyết định kiến trúc.
 - Tài liệu thiết kế automation.
+- Script cài đặt Linux/macOS.
 - Template starter cho repository mới.
 - Mẫu global rule cho `~/.codex/AGENTS.md`.
 
 ## Ngoài phạm vi
 
 - Ứng dụng web, API hoặc giao diện.
-- Script cài đặt tự động.
+- Script hoặc automation ngoài roadmap hiện tại.
 - Automation đồng bộ trạng thái.
 - Tích hợp CI/CD.
 - Quản lý secret.
@@ -79,6 +80,8 @@ Coding agent thường mất bối cảnh giữa các phiên, dễ dựa vào l�
 │   └── decisions.md
 ├── docs/
 │   └── install-design.md
+├── scripts/
+│   └── install.sh
 ├── global/
 │   └── AGENTS.md
 └── starter/
@@ -100,6 +103,8 @@ git diff
 git diff --check
 git diff --cached
 git log --oneline -5
+scripts/install.sh --help
+scripts/install.sh --target /duong/dan/toi/repo --dry-run
 ```
 
 ## Cách kiểm thử
@@ -112,6 +117,7 @@ Vì đây là repository tài liệu, kiểm thử tập trung vào:
 - Kiểm tra Markdown cơ bản.
 - Kiểm tra nội dung starter không lẫn trạng thái riêng của AI Project OS.
 - Kiểm tra trạng thái task hiện tại thống nhất giữa roadmap, task và checklist.
+- Kiểm thử script cài đặt bằng thư mục tạm trong `/tmp` khi task liên quan đến automation.
 - Chạy `git diff --check`.
 - Xem lại toàn bộ `git diff`.
 
@@ -124,7 +130,7 @@ Baseline `v0.1.0` được phân phối bằng cách sao chép thủ công:
 
 Các script cài đặt sẽ được thiết kế ở Phase 1. Package release và Git tag phát hành nằm ngoài `v0.1.0` và sẽ được xử lý ở Phase 3.
 
-Thiết kế cơ chế cài đặt nằm ở `docs/install-design.md`. Script sau này phải bám theo thiết kế này, đặc biệt là mặc định không ghi đè, có dry-run và xử lý conflict rõ ràng.
+Thiết kế cơ chế cài đặt nằm ở `docs/install-design.md`. Script Linux/macOS nằm ở `scripts/install.sh` và phải bám theo thiết kế này, đặc biệt là mặc định không ghi đè, có dry-run và xử lý conflict rõ ràng.
 
 ## Ràng buộc
 

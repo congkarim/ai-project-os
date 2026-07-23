@@ -16,9 +16,9 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 1 - Automation.
-- Task hiện tại: `P1-T1` - Thiết kế cơ chế cài đặt vào repository mới.
+- Task hiện tại: `P1-T2` - Viết script cài đặt cho Linux/macOS.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã thiết kế cơ chế cài đặt an toàn trong `docs/install-design.md`, chưa viết script.
+- Tiến độ: đã viết và kiểm thử script cài đặt Linux/macOS tại `scripts/install.sh`.
 
 ## Bảng các phase
 
@@ -44,7 +44,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | ID | Task | Trạng thái |
 | --- | --- | --- |
 | `P1-T1` | Thiết kế cơ chế cài đặt vào repository mới | `DONE` |
-| `P1-T2` | Viết script cài đặt cho Linux/macOS | `TODO` |
+| `P1-T2` | Viết script cài đặt cho Linux/macOS | `DONE` |
 | `P1-T3` | Viết script cài đặt cho Windows PowerShell | `TODO` |
 | `P1-T4` | Kiểm thử idempotency và bảo toàn file hiện có | `TODO` |
 
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P1-T1`
-- Tên: Thiết kế cơ chế cài đặt vào repository mới
+- ID: `P1-T2`
+- Tên: Viết script cài đặt cho Linux/macOS
 - Trạng thái: `DONE`
-- Mục tiêu: chốt thiết kế cài đặt an toàn để làm đầu vào cho script Linux/macOS và Windows PowerShell.
+- Mục tiêu: triển khai script Bash cài đặt AI Project OS theo thiết kế đã chốt.
 
 ## Task tiếp theo dự kiến
 
-- `P1-T2`: Viết script cài đặt cho Linux/macOS.
+- `P1-T3`: Viết script cài đặt cho Windows PowerShell.
 
 ## Phụ thuộc
 
@@ -97,3 +97,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Hoàn thành `P0-T3`; Phase 0 hoàn thành, task tiếp theo dự kiến là `P1-T1`.
 - 2026-07-23: Bắt đầu `P1-T1` để thiết kế cơ chế cài đặt vào repository mới.
 - 2026-07-23: Hoàn thành `P1-T1`; task tiếp theo dự kiến là `P1-T2`.
+- 2026-07-23: Bắt đầu `P1-T2` để viết script cài đặt cho Linux/macOS.
+- 2026-07-23: Hoàn thành `P1-T2`; task tiếp theo dự kiến là `P1-T3`.

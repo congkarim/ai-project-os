@@ -54,7 +54,7 @@ File global là lớp rule tối thiểu. Khi repository có `AGENTS.md`, rule p
 
 ## Áp dụng cho dự án mới
 
-Trong `v0.1.0`, cách áp dụng vẫn là sao chép thủ công. Thiết kế cài đặt tự động nằm trong `docs/install-design.md` và sẽ được triển khai ở Phase 1.
+Trong `v0.1.0`, có thể sao chép thủ công hoặc dùng script Linux/macOS.
 
 Trong repository mới:
 
@@ -62,6 +62,15 @@ Trong repository mới:
 cp /duong/dan/toi/ai-project-os/starter/AGENTS.md ./AGENTS.md
 cp -R /duong/dan/toi/ai-project-os/starter/.ai ./.ai
 ```
+
+Hoặc chạy script Linux/macOS từ repository AI Project OS:
+
+```sh
+scripts/install.sh --target /duong/dan/toi/repository-moi --dry-run
+scripts/install.sh --target /duong/dan/toi/repository-moi --yes
+```
+
+Script mặc định không ghi đè file đã tồn tại và khác nội dung. Khi cần, dùng `--backup` để sao lưu trước khi ghi hoặc `--overwrite` để ghi đè có chủ đích. Thiết kế chi tiết nằm trong `docs/install-design.md`.
 
 Sau khi sao chép:
 

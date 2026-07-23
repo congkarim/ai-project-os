@@ -2,11 +2,11 @@
 
 ## ID
 
-`P1-T1`
+`P1-T2`
 
 ## Tên task
 
-Thiết kế cơ chế cài đặt vào repository mới.
+Viết script cài đặt cho Linux/macOS.
 
 ## Phase
 
@@ -18,86 +18,90 @@ Phase 1 - Automation.
 
 ## Mục tiêu
 
-Thiết kế cơ chế cài đặt AI Project OS vào repository mới hoặc repository đang có theo cách an toàn, idempotent và bảo toàn file hiện hữu.
+Viết script Bash để cài AI Project OS vào repository mới hoặc repository đang có trên Linux/macOS theo thiết kế trong `docs/install-design.md`.
 
 ## Bối cảnh
 
-Phase 0 đã chốt baseline `v0.1.0` dưới dạng tài liệu thủ công. Phase 1 bắt đầu bằng thiết kế trước khi viết script cho Linux/macOS và Windows PowerShell. Task này chỉ tạo tài liệu thiết kế, không triển khai script.
+`P1-T1` đã chốt thiết kế cài đặt an toàn: mặc định không ghi đè, có dry-run, backup, overwrite, conflict handling và idempotency. `P1-T2` triển khai script Linux/macOS đầu tiên để làm nền cho script PowerShell ở `P1-T3`.
 
 ## Phạm vi
 
-- Thiết kế project mode để cài `starter/AGENTS.md` và `starter/.ai/`.
-- Thiết kế global mode để cài `global/AGENTS.md`.
-- Thiết kế dry-run, backup, overwrite và conflict handling.
-- Thiết kế nguyên tắc idempotency.
-- Thiết kế tham số, mã kết thúc và kiểm thử cho script sau này.
-- Cập nhật README, context, roadmap, task, checklist, plan và decisions nếu cần.
-- Commit task `P1-T1`.
+- Tạo `scripts/install.sh`.
+- Hỗ trợ project mode cài `starter/AGENTS.md` và `starter/.ai/`.
+- Hỗ trợ global mode cài `global/AGENTS.md`.
+- Hỗ trợ `--target`, `--global`, `--dry-run`, `--overwrite`, `--backup`, `--yes`, `--help`.
+- Mặc định không ghi đè file conflict.
+- Chạy kiểm thử bằng thư mục tạm trong `/tmp`.
+- Cập nhật README, context, roadmap, task, checklist và plan.
+- Commit task `P1-T2`.
 
 ## Ngoài phạm vi
 
-- Không viết script Linux/macOS.
 - Không viết script Windows PowerShell.
-- Không chạy cài đặt vào repository khác.
+- Không cài thật vào repository ngoài test temp.
+- Không sửa `~/.codex/AGENTS.md` thật.
+- Không cài dependency production.
 - Không tạo package release.
 - Không gắn Git tag.
-- Không sửa global Codex config thật.
 
 ## Đầu vào
 
-- Baseline `v0.1.0`.
-- `starter/AGENTS.md` và `starter/.ai/`.
+- `docs/install-design.md`.
+- `starter/`.
 - `global/AGENTS.md`.
-- ADR hiện có.
+- ADR-004.
 - Roadmap Phase 1.
 
 ## Đầu ra
 
-- `docs/install-design.md` mô tả cơ chế cài đặt.
-- README trỏ tới tài liệu thiết kế cài đặt.
-- Context cập nhật về tài liệu thiết kế automation.
-- ADR mới nếu quyết định cài đặt có tác động dài hạn.
-- Kết quả kiểm thử được ghi lại.
-- Commit Git cho task `P1-T1`.
+- `scripts/install.sh`.
+- README có hướng dẫn chạy script Linux/macOS.
+- Kết quả kiểm thử script được ghi lại.
+- Commit Git cho task `P1-T2`.
 
 ## Cách thực hiện đã chốt
 
-Tạo tài liệu thiết kế trước, không viết script. Cơ chế cài đặt mặc định không ghi đè, có dry-run bắt buộc, hỗ trợ backup/overwrite rõ ràng và dùng `starter/` làm nguồn project-level install.
+Triển khai script Bash không phụ thuộc package ngoài. Script dùng `starter/` làm nguồn project mode, dùng `global/AGENTS.md` cho global mode, mặc định không ghi đè, hỗ trợ dry-run/backup/overwrite và dùng mã thoát theo thiết kế.
 
 ## Tiêu chí chấp nhận
 
-- Có tài liệu thiết kế cài đặt.
-- Tài liệu thiết kế nêu project mode, global mode và dry-run.
-- Tài liệu thiết kế nêu chính sách không ghi đè mặc định.
-- Tài liệu thiết kế nêu backup, overwrite, conflict handling và idempotency.
-- Tài liệu thiết kế nêu tham số, mã kết thúc và kiểm thử cho script sau này.
-- Không có script mới.
-- README và context trỏ tới tài liệu thiết kế.
-- Roadmap, task và checklist thống nhất `P1-T1`.
-- Task tiếp theo dự kiến là `P1-T2`.
+- `scripts/install.sh` tồn tại và có shebang Bash.
+- `--help` hoạt động.
+- Project mode dry-run không ghi file.
+- Project mode cài vào thư mục trống.
+- Chạy lại project mode không tạo thay đổi mới.
+- Conflict mặc định trả lỗi và không ghi đè.
+- `--backup` tạo bản sao lưu rồi ghi.
+- `--overwrite` ghi đè khi người dùng chọn.
+- Global mode dùng `HOME` tạm trong test, không đụng home thật.
+- Không dùng `git add .`.
 - Markdown cơ bản không lỗi.
 - `git diff --check` đạt.
-- Commit được tạo với thông điệp `[P1-T1] Thiết kế cơ chế cài đặt`.
+- Commit được tạo với thông điệp `[P1-T2] Viết script cài đặt Linux macOS`.
 
 ## Kiểm thử bắt buộc
 
 - Chạy `git status --short` trước khi sửa và trước khi stage.
-- Kiểm tra `docs/install-design.md` tồn tại và không rỗng.
-- Kiểm tra tài liệu có các từ khóa `dry-run`, `backup`, `overwrite`, `conflict`, `idempotency`.
-- Kiểm tra không có script mới.
+- Chạy `bash -n scripts/install.sh`.
+- Chạy `scripts/install.sh --help`.
+- Chạy dry-run project mode vào `/tmp`.
+- Cài project mode vào thư mục tạm.
+- Chạy lại project mode để kiểm tra idempotency.
+- Kiểm tra conflict mặc định.
+- Kiểm tra `--backup`.
+- Kiểm tra `--overwrite`.
+- Kiểm tra global mode với `HOME` tạm.
 - Kiểm tra không có file rỗng.
 - Kiểm tra Markdown cơ bản.
-- Kiểm tra starter không chứa thông tin riêng của AI Project OS.
-- Kiểm tra global rule không chứa trạng thái task cụ thể.
-- Kiểm tra thống nhất `P1-T1` giữa roadmap, task và checklist.
+- Kiểm tra thống nhất `P1-T2` giữa roadmap, task và checklist.
 - Chạy `git diff --check`.
 - Xem lại toàn bộ `git diff`.
 
 ## Rủi ro
 
-- Thiết kế quá phức tạp có thể làm script sau này khó triển khai đồng nhất.
-- Thiết kế quá lỏng có thể không bảo toàn file người dùng.
-- Chọn sai mặc định overwrite có thể gây mất dữ liệu.
+- Bash trên macOS có thể là phiên bản cũ.
+- Test ghi nhầm home thật nếu không set `HOME` tạm.
+- Logic conflict có thể không xử lý đúng thư mục đích đã tồn tại.
 
 ## Blocker
 
@@ -105,36 +109,40 @@ Chưa có blocker đã xác nhận.
 
 ## Kết quả task trước
 
-`P0-T3` đã chốt AI Project OS `v0.1.0` và commit `d876de8e98e2e1f54058bc63cbcf33f434925f40`.
+`P1-T1` đã thiết kế cơ chế cài đặt và commit `0c7e8af606bc4d31b8c74c9b2f1c602699e51839`.
 
 ## Task tiếp theo dự kiến
 
-`P1-T2` - Viết script cài đặt cho Linux/macOS.
+`P1-T3` - Viết script cài đặt cho Windows PowerShell.
 
 ## Kết quả thực hiện
 
-Đã thiết kế cơ chế cài đặt AI Project OS:
+Đã viết script cài đặt Linux/macOS:
 
-- Tạo `docs/install-design.md` làm tài liệu thiết kế cho script Phase 1.
-- Thiết kế project mode để cài `starter/AGENTS.md` và `starter/.ai/`.
-- Thiết kế global mode để cài `global/AGENTS.md`.
-- Chốt mặc định không ghi đè file đã tồn tại và khác nguồn.
-- Chốt dry-run, backup, overwrite, conflict handling và idempotency.
-- Mô tả tham số, mã kết thúc và danh sách kiểm thử cho script sau này.
-- Cập nhật README và context để trỏ tới tài liệu thiết kế.
-- Bổ sung `ADR-004` về mặc định không ghi đè khi cài đặt.
-- Không tạo script mới.
+- Tạo `scripts/install.sh` với shebang Bash và quyền thực thi.
+- Hỗ trợ project mode cài `starter/AGENTS.md` và `starter/.ai/`.
+- Hỗ trợ global mode cài `global/AGENTS.md`.
+- Hỗ trợ `--target`, `--global`, `--dry-run`, `--overwrite`, `--backup`, `--yes`, `--help`.
+- Mặc định không ghi đè file conflict.
+- Tách bước lập kế hoạch và bước ghi file để dry-run không ghi file và prompt xảy ra trước khi apply.
+- Cập nhật README và context với hướng dẫn Linux/macOS.
 
 Kết quả kiểm thử chính:
 
-- `test -s docs/install-design.md`: tài liệu thiết kế tồn tại và không rỗng.
-- `rg` tìm `dry-run`, `backup`, `overwrite`, `conflict`, `idempotency`: đạt.
-- `find` tìm script mới với các đuôi `.sh`, `.ps1`, `.py`, `.js`, `.ts`: không có kết quả.
+- `bash -n scripts/install.sh`: đạt.
+- `scripts/install.sh --help`: đạt.
+- Dry-run project mode vào `/tmp`: không ghi file.
+- Project mode cài vào thư mục tạm: tạo đủ `AGENTS.md` và 6 file `.ai/`.
+- Chạy lại project mode: báo `skipped: 7`.
+- Conflict mặc định: trả mã `1`, báo conflict và không ghi đè.
+- `--backup`: tạo `AGENTS.md.bak.<timestamp>` và ghi file nguồn.
+- `--overwrite`: ghi file nguồn và không tạo backup.
+- Global mode với `HOME` tạm: tạo `~/.codex/AGENTS.md`, chạy lại báo `skipped: 1`.
+- `--backup` và `--overwrite` dùng cùng lúc: trả lỗi tham số.
+- `rg` kiểm tra script không có `git add`.
 - `find ... -size 0`: không có file rỗng.
 - Kiểm tra H1 và code fence Markdown: không phát hiện lỗi.
-- `rg` trong `starter/`: không phát hiện `AI Project OS`, `ai-project-os`, `P1-T1`, `P1-T2` hoặc `v0.1.0`.
-- `rg` trong `global/AGENTS.md`: không phát hiện trạng thái task cụ thể.
-- `rg` trong `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`: thống nhất `P1-T1`.
+- `rg` trong `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`: thống nhất `P1-T2`.
 - `git diff --check`: không phát hiện lỗi whitespace.
 - Đã xem lại diff trước khi commit.
 
