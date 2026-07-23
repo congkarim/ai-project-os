@@ -15,10 +15,10 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Trạng thái hiện tại
 
-- Phase hiện tại: Phase 1 - Automation.
-- Task hiện tại: `P1-T4` - Kiểm thử idempotency và bảo toàn file hiện có.
+- Phase hiện tại: Phase 2 - Validation.
+- Task hiện tại: `P2-T1` - Thử nghiệm trên một repository mẫu.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã kiểm thử idempotency và bảo toàn file hiện có cho script Bash; PowerShell được kiểm tra tĩnh vì môi trường chưa có `pwsh`.
+- Tiến độ: đã thử nghiệm áp dụng AI Project OS vào repository mẫu trong `/tmp`.
 
 ## Bảng các phase
 
@@ -26,7 +26,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | --- | --- | --- | --- |
 | Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DONE` |
 | Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `DONE` |
-| Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `TODO` |
+| Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `DOING` |
 | Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `TODO` |
 
 ## Các task trong từng phase
@@ -52,7 +52,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 | ID | Task | Trạng thái |
 | --- | --- | --- |
-| `P2-T1` | Thử nghiệm trên một repository mẫu | `TODO` |
+| `P2-T1` | Thử nghiệm trên một repository mẫu | `DONE` |
 | `P2-T2` | Thử nghiệm trên một dự án đang phát triển | `TODO` |
 | `P2-T3` | Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới | `TODO` |
 
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P1-T4`
-- Tên: Kiểm thử idempotency và bảo toàn file hiện có
+- ID: `P2-T1`
+- Tên: Thử nghiệm trên một repository mẫu
 - Trạng thái: `DONE`
-- Mục tiêu: kiểm thử script cài đặt không tạo thay đổi mới khi chạy lại và không ghi đè file conflict nếu người dùng chưa chọn rõ.
+- Mục tiêu: áp dụng AI Project OS vào một Git repository mẫu để xác nhận starter và script cài đặt tạo được bộ khung dùng được.
 
 ## Task tiếp theo dự kiến
 
-- `P2-T1`: Thử nghiệm trên một repository mẫu.
+- `P2-T2`: Thử nghiệm trên một dự án đang phát triển.
 
 ## Phụ thuộc
 
@@ -103,3 +103,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Hoàn thành `P1-T3`; task tiếp theo dự kiến là `P1-T4`.
 - 2026-07-23: Bắt đầu `P1-T4` để kiểm thử idempotency và bảo toàn file hiện có.
 - 2026-07-23: Hoàn thành `P1-T4`; Phase 1 hoàn thành, task tiếp theo dự kiến là `P2-T1`.
+- 2026-07-23: Bắt đầu `P2-T1` để thử nghiệm trên một repository mẫu.
+- 2026-07-23: Hoàn thành `P2-T1`; task tiếp theo dự kiến là `P2-T2`.
