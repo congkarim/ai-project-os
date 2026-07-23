@@ -95,3 +95,35 @@ Phase 0 chỉ nhằm hoàn thiện nền tảng tài liệu. Git tag và phát h
 ### Điều kiện xem xét lại
 
 Xem xét lại khi Phase 1 có script cài đặt hoặc khi Phase 3 chuẩn bị đóng gói release chính thức.
+
+## ADR-004 - Mặc định không ghi đè khi cài đặt
+
+- ID: `ADR-004`
+- Ngày: 2026-07-23
+- Trạng thái: Chấp nhận
+
+### Bối cảnh
+
+Phase 1 cần thiết kế cơ chế cài đặt AI Project OS vào repository mới hoặc repository đang có. Repository đang có có thể đã có `AGENTS.md`, `.ai/` hoặc `~/.codex/AGENTS.md` với nội dung riêng của người dùng.
+
+### Các phương án
+
+- Mặc định không ghi đè, báo conflict khi file đích khác nguồn.
+- Luôn backup rồi ghi file mới.
+- Luôn ghi đè file đích.
+
+### Phương án được chọn
+
+Mặc định không ghi đè. Script sau này chỉ ghi đè khi người dùng chọn rõ `--overwrite`, hoặc sao lưu rồi ghi khi chọn `--backup`.
+
+### Lý do
+
+Quy tắc an toàn của AI Project OS ưu tiên bảo toàn thay đổi của người dùng. Mặc định không ghi đè giúp script an toàn trên repository đang phát triển và buộc conflict phải được xử lý có chủ đích.
+
+### Hệ quả
+
+Script cài đặt cần có bước so sánh file, báo conflict, hỗ trợ dry-run và trả mã lỗi khi conflict chưa được xử lý.
+
+### Điều kiện xem xét lại
+
+Chỉ xem xét lại nếu Phase 2 chứng minh workflow backup mặc định an toàn và dễ hiểu hơn cho người dùng.

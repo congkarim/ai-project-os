@@ -15,17 +15,17 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Trạng thái hiện tại
 
-- Phase hiện tại: Phase 0 - Foundation.
-- Task hiện tại: `P0-T3` - Chốt AI Project OS v0.1.
+- Phase hiện tại: Phase 1 - Automation.
+- Task hiện tại: `P1-T1` - Thiết kế cơ chế cài đặt vào repository mới.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã chốt baseline tài liệu `v0.1.0`; Phase 0 hoàn thành, Phase 1 chưa bắt đầu.
+- Tiến độ: đã thiết kế cơ chế cài đặt an toàn trong `docs/install-design.md`, chưa viết script.
 
 ## Bảng các phase
 
 | Phase | Tên | Mục tiêu | Trạng thái |
 | --- | --- | --- | --- |
 | Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DONE` |
-| Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `TODO` |
+| Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `DOING` |
 | Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `TODO` |
 | Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `TODO` |
 
@@ -43,7 +43,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 | ID | Task | Trạng thái |
 | --- | --- | --- |
-| `P1-T1` | Thiết kế cơ chế cài đặt vào repository mới | `TODO` |
+| `P1-T1` | Thiết kế cơ chế cài đặt vào repository mới | `DONE` |
 | `P1-T2` | Viết script cài đặt cho Linux/macOS | `TODO` |
 | `P1-T3` | Viết script cài đặt cho Windows PowerShell | `TODO` |
 | `P1-T4` | Kiểm thử idempotency và bảo toàn file hiện có | `TODO` |
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P0-T3`
-- Tên: Chốt AI Project OS v0.1
+- ID: `P1-T1`
+- Tên: Thiết kế cơ chế cài đặt vào repository mới
 - Trạng thái: `DONE`
-- Mục tiêu: xác nhận baseline v0.1 của bộ tài liệu, phạm vi phân phối thủ công và điều kiện chuyển sang Phase 1.
+- Mục tiêu: chốt thiết kế cài đặt an toàn để làm đầu vào cho script Linux/macOS và Windows PowerShell.
 
 ## Task tiếp theo dự kiến
 
-- `P1-T1`: Thiết kế cơ chế cài đặt vào repository mới.
+- `P1-T2`: Viết script cài đặt cho Linux/macOS.
 
 ## Phụ thuộc
 
@@ -84,7 +84,8 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Rủi ro hoặc blocker
 
 - Git identity cục bộ có thể chưa được cấu hình, khiến commit thất bại.
-- Nội dung template có thể trùng lặp giữa root và starter, cần rà soát ở `P0-T2`.
+- Script cài đặt sau này phải giữ hành vi tương đương giữa Linux/macOS và Windows.
+- Cần kiểm thử idempotency kỹ ở `P1-T4`.
 
 ## Nhật ký cập nhật ngắn
 
@@ -94,3 +95,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Hoàn thành `P0-T2`; task tiếp theo dự kiến là `P0-T3`.
 - 2026-07-23: Bắt đầu `P0-T3` để chốt baseline AI Project OS v0.1.
 - 2026-07-23: Hoàn thành `P0-T3`; Phase 0 hoàn thành, task tiếp theo dự kiến là `P1-T1`.
+- 2026-07-23: Bắt đầu `P1-T1` để thiết kế cơ chế cài đặt vào repository mới.
+- 2026-07-23: Hoàn thành `P1-T1`; task tiếp theo dự kiến là `P1-T2`.

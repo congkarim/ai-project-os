@@ -15,6 +15,7 @@ Phiên bản hiện tại: `v0.1.0`.
 - `.ai/task-checklist.md`: checklist thực thi và đóng task.
 - `.ai/plan.md`: không gian lập kế hoạch tạm thời của task hiện tại.
 - `.ai/decisions.md`: nhật ký quyết định kiến trúc.
+- `docs/install-design.md`: thiết kế cơ chế cài đặt cho các script Phase 1.
 - `global/AGENTS.md`: mẫu rule chung để đặt tại `~/.codex/AGENTS.md`.
 - `starter/`: bộ khung sạch để sao chép vào repository mới.
 
@@ -52,6 +53,8 @@ cp global/AGENTS.md ~/.codex/AGENTS.md
 File global là lớp rule tối thiểu. Khi repository có `AGENTS.md`, rule project-level là nguồn chi tiết hơn.
 
 ## Áp dụng cho dự án mới
+
+Trong `v0.1.0`, cách áp dụng vẫn là sao chép thủ công. Thiết kế cài đặt tự động nằm trong `docs/install-design.md` và sẽ được triển khai ở Phase 1.
 
 Trong repository mới:
 
@@ -119,6 +122,6 @@ Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phư
 ## Roadmap của AI Project OS
 
 - Phase 0 - Foundation: khởi tạo bộ khung, rà soát schema, chốt v0.1.
-- Phase 1 - Automation: thiết kế và viết script cài đặt cho nhiều hệ điều hành.
+- Phase 1 - Automation: thiết kế cơ chế cài đặt trong `docs/install-design.md`, sau đó viết script cho nhiều hệ điều hành.
 - Phase 2 - Validation: thử nghiệm trên repository mẫu và dự án thật.
 - Phase 3 - Release: hoàn thiện hướng dẫn, đóng gói `v1.0.0`, gắn Git tag và phát hành.

@@ -28,6 +28,7 @@ Coding agent thường mất bối cảnh giữa các phiên, dễ dựa vào l�
 - Task hiện tại và checklist.
 - Không gian lập kế hoạch tạm thời.
 - Nhật ký quyết định kiến trúc.
+- Tài liệu thiết kế automation.
 - Template starter cho repository mới.
 - Mẫu global rule cho `~/.codex/AGENTS.md`.
 
@@ -76,6 +77,8 @@ Coding agent thường mất bối cảnh giữa các phiên, dễ dựa vào l�
 │   ├── task-checklist.md
 │   ├── plan.md
 │   └── decisions.md
+├── docs/
+│   └── install-design.md
 ├── global/
 │   └── AGENTS.md
 └── starter/
@@ -120,6 +123,8 @@ Baseline `v0.1.0` được phân phối bằng cách sao chép thủ công:
 - `starter/AGENTS.md` và `starter/.ai/` vào repository mới.
 
 Các script cài đặt sẽ được thiết kế ở Phase 1. Package release và Git tag phát hành nằm ngoài `v0.1.0` và sẽ được xử lý ở Phase 3.
+
+Thiết kế cơ chế cài đặt nằm ở `docs/install-design.md`. Script sau này phải bám theo thiết kế này, đặc biệt là mặc định không ghi đè, có dry-run và xử lý conflict rõ ràng.
 
 ## Ràng buộc
 
