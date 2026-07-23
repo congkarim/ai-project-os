@@ -2,11 +2,11 @@
 
 ## ID
 
-`P2-T1`
+`P2-T2`
 
 ## Tên task
 
-Thử nghiệm trên một repository mẫu.
+Thử nghiệm trên một dự án đang phát triển.
 
 ## Phase
 
@@ -18,117 +18,113 @@ Phase 2 - Validation.
 
 ## Mục tiêu
 
-Thử nghiệm áp dụng AI Project OS vào một Git repository mẫu để xác nhận script cài đặt và starter tạo được bộ khung quản lý dự án sạch, dễ tiếp quản.
+Thử nghiệm script cài đặt trên một repository đang phát triển đã có `AGENTS.md` và `.ai/`, để xác nhận mặc định không ghi đè và không làm dirty working tree.
 
 ## Bối cảnh
 
-Phase 1 đã hoàn thành cơ chế cài đặt và kiểm thử idempotency của script Bash. PowerShell đã được kiểm tra tĩnh do môi trường hiện chưa có `pwsh`. Phase 2 cần xác nhận workflow thực tế trên repository mẫu trước khi thử trên dự án đang phát triển.
+`P2-T1` đã xác nhận script cài đặt tạo được bộ khung sạch trên repository mẫu mới. `P2-T2` tập trung vào tình huống rủi ro hơn: repository đang phát triển đã có tài liệu quản lý riêng và không được bị ghi đè khi chạy script mặc định.
 
 ## Phạm vi
 
-- Tạo Git repository mẫu trong `/tmp`.
-- Chạy `scripts/install.sh` với `--dry-run` và cài thật bằng `--yes`.
-- Kiểm tra các file starter được tạo trong repo mẫu.
-- Kiểm tra nội dung starter không lẫn trạng thái riêng của AI Project OS.
-- Mô phỏng agent startup trong repo mẫu bằng cách đọc `AGENTS.md` và `.ai/`.
-- Chạy lại script để xác nhận idempotency trong repo mẫu.
+- Dùng chính repository AI Project OS hiện tại làm repository đang phát triển.
+- Chạy `scripts/install.sh --target <repo> --dry-run`.
+- Chạy `scripts/install.sh --target <repo> --yes` ở chế độ mặc định, không dùng `--backup` hoặc `--overwrite`.
+- Xác nhận conflict được báo rõ.
+- Xác nhận `git status --short` không đổi.
+- Xác nhận `AGENTS.md` và `.ai/task.md` hiện có không bị thay bằng starter.
 - Ghi kết quả thử nghiệm vào tài liệu trạng thái.
-- Commit task `P2-T1`.
+- Commit task `P2-T2`.
 
 ## Ngoài phạm vi
 
-- Không dùng repository mẫu để phát triển app.
-- Không thử trên dự án đang phát triển thật; phần đó thuộc `P2-T2`.
-- Không chạy PowerShell runtime nếu môi trường vẫn không có `pwsh`.
+- Không chạy `--backup` hoặc `--overwrite` trên repository đang phát triển hiện tại.
+- Không thử trên repository ngoài workspace.
+- Không bắt đầu `P2-T3`.
 - Không tạo package release hoặc Git tag.
 
 ## Đầu vào
 
+- Repository hiện tại.
 - `starter/`.
 - `scripts/install.sh`.
-- `docs/install-design.md`.
-- Kết quả `P1-T4`.
+- ADR-004.
+- Kết quả `P2-T1`.
 
 ## Đầu ra
 
-- Kết quả thử nghiệm repository mẫu được ghi lại.
-- Roadmap, task, checklist và plan thống nhất cho `P2-T1`.
-- Commit Git cho task `P2-T1`.
+- Kết quả thử nghiệm dự án đang phát triển được ghi lại.
+- Roadmap, task, checklist và plan thống nhất cho `P2-T2`.
+- Commit Git cho task `P2-T2`.
 
 ## Cách thực hiện đã chốt
 
-Tạo repo mẫu trong `/tmp`, cài AI Project OS bằng script Bash, kiểm tra cấu trúc file và nội dung starter, sau đó chạy lại script để xác nhận repo mẫu không bị thay đổi thêm.
+Chạy script Bash trên repository hiện tại ở chế độ không ghi đè. Vì repository hiện tại đã có `AGENTS.md` và `.ai/` khác starter, hành vi đúng là báo conflict, trả mã khác `0` và không ghi file.
 
 ## Tiêu chí chấp nhận
 
-- Repository mẫu là Git repository hợp lệ.
-- Dry-run không ghi file vào repo mẫu.
-- Cài thật tạo `AGENTS.md` và đủ file `.ai/`.
-- File được tạo trong repo mẫu giống nguồn từ `starter/`.
-- Starter không chứa trạng thái riêng của AI Project OS.
-- Agent startup trong repo mẫu có đủ file cần đọc theo `AGENTS.md`.
-- Chạy lại script không tạo thay đổi mới.
-- Roadmap, task và checklist thống nhất `P2-T1`.
-- Task tiếp theo dự kiến là `P2-T2`.
+- Repository đang phát triển bắt đầu với `git status --short` sạch.
+- Dry-run có conflict trả mã khác `0`, in plan và không làm thay đổi Git status.
+- Install mặc định có conflict trả mã khác `0`, in danh sách conflict và hướng dẫn dùng `--backup` hoặc `--overwrite`.
+- `AGENTS.md` hiện tại không bị thay bằng `starter/AGENTS.md`.
+- `.ai/task.md` hiện tại không bị thay bằng `starter/.ai/task.md`.
+- Roadmap, task và checklist thống nhất `P2-T2`.
+- Task tiếp theo dự kiến là `P2-T3`.
 - Markdown cơ bản không lỗi.
 - `git diff --check` đạt.
-- Commit được tạo với thông điệp `[P2-T1] Thử nghiệm trên repository mẫu`.
+- Commit được tạo với thông điệp `[P2-T2] Thử nghiệm trên dự án đang phát triển`.
 
 ## Kiểm thử bắt buộc
 
 - Chạy `git status --short` trước khi sửa và trước khi stage.
-- Tạo repo mẫu trong `/tmp`.
-- Chạy dry-run và xác nhận không tạo file.
-- Chạy cài thật và xác nhận đủ file.
-- So sánh file repo mẫu với `starter/`.
-- Đọc file repo mẫu theo trình tự startup.
-- Chạy lại cài đặt và xác nhận idempotency.
+- Chạy dry-run vào repository hiện tại.
+- Chạy install mặc định vào repository hiện tại với `--yes`.
+- Xác nhận conflict được báo.
+- Xác nhận Git status không đổi sau mỗi lần chạy.
+- Xác nhận file hiện có không bị thay thế bởi starter.
 - Kiểm tra không có file rỗng.
 - Kiểm tra Markdown cơ bản.
-- Kiểm tra thống nhất `P2-T1` giữa roadmap, task và checklist.
+- Kiểm tra thống nhất `P2-T2` giữa roadmap, task và checklist.
 - Chạy `git diff --check`.
 - Xem lại toàn bộ `git diff`.
 
 ## Rủi ro
 
-- Repo mẫu quá đơn giản có thể chưa đại diện đầy đủ cho dự án thật; `P2-T2` sẽ xử lý rủi ro này.
-- Nếu starter có placeholder quá chung hoặc thiếu hướng dẫn, cần ghi nhận và sửa trong phạm vi task.
+- Chỉ kiểm thử được Bash runtime; PowerShell runtime vẫn cần môi trường có `pwsh` hoặc Windows PowerShell.
+- Không dùng `--backup` hoặc `--overwrite` trên repository thật để tránh ghi đè ngoài ý muốn.
 
 ## Blocker
 
-Chưa có blocker.
+Không có blocker.
 
 ## Kết quả task trước
 
-`P1-T4` đã kiểm thử idempotency script cài đặt và commit `e258fc068322fc7b5a29c8fd4b18458985bae3a4`.
+`P2-T1` đã thử nghiệm repository mẫu và commit `3bb5a8f2e4cd1948ad7567dcb0b1c5100be53be4`.
 
 ## Task tiếp theo dự kiến
 
-`P2-T2` - Thử nghiệm trên một dự án đang phát triển.
+`P2-T3` - Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
 
 ## Kết quả thực hiện
 
-Đã thử nghiệm AI Project OS trên một Git repository mẫu trong `/tmp`.
+Đã thử nghiệm trên repository đang phát triển hiện tại ở chế độ an toàn.
 
 Kết quả thử nghiệm:
 
-- Tạo Git repository mẫu thành công.
-- Dry-run bằng `scripts/install.sh --target <repo-mau> --dry-run` thoát `0` và không tạo `AGENTS.md` hoặc `.ai/`.
-- Cài thật bằng `scripts/install.sh --target <repo-mau> --yes` thoát `0`.
-- Repo mẫu có `AGENTS.md` và đủ file `.ai/context.md`, `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`, `.ai/plan.md`, `.ai/decisions.md`.
-- Các file được tạo trong repo mẫu giống nguồn trong `starter/`.
-- Các file startup trong repo mẫu đều không rỗng và đọc được.
-- `AGENTS.md` trong repo mẫu có chỉ dẫn đọc `.ai/context.md`.
-- Starter không lẫn trạng thái riêng của AI Project OS như `P1-T`, `P2-T`, `Phase 1`, `Phase 2`, `scripts/install` hoặc tên repo hiện tại.
-- Chạy lại script thoát `0`, báo `unchanged` và không làm thay đổi `git status --short` của repo mẫu.
+- `git status --short` trước thử nghiệm: sạch.
+- Dry-run vào repository hiện tại trả mã khác `0` vì có conflict, in `Plan:` và báo conflict cho `AGENTS.md`.
+- Dry-run không làm thay đổi `git status --short`.
+- Install mặc định với `--yes` trả mã khác `0`, in `Conflicts:` và hướng dẫn dùng `--backup` hoặc `--overwrite`.
+- Install mặc định không làm thay đổi `git status --short`.
+- `AGENTS.md` hiện tại vẫn khác `starter/AGENTS.md`, nghĩa là không bị ghi đè.
+- `.ai/task.md` hiện tại vẫn khác `starter/.ai/task.md`, nghĩa là không bị ghi đè.
 
-Tổng kết test repo mẫu: 20 pass, 0 fail.
+Tổng kết test repository đang phát triển: 11 pass, 0 fail.
 
 Kiểm tra repository chính:
 
 - Kiểm tra không có file rỗng: đạt.
 - Kiểm tra Markdown cơ bản: đạt.
-- Kiểm tra thống nhất `P2-T1` trong `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`: đạt.
+- Kiểm tra thống nhất `P2-T2` trong `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`: đạt.
 - `git diff --check`: đạt.
 - Đã xem lại toàn bộ diff trước khi commit.
 

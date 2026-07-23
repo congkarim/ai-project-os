@@ -16,9 +16,9 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 2 - Validation.
-- Task hiện tại: `P2-T1` - Thử nghiệm trên một repository mẫu.
+- Task hiện tại: `P2-T2` - Thử nghiệm trên một dự án đang phát triển.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã thử nghiệm áp dụng AI Project OS vào repository mẫu trong `/tmp`.
+- Tiến độ: đã thử nghiệm hành vi cài đặt an toàn trên repository đang phát triển hiện tại.
 
 ## Bảng các phase
 
@@ -53,7 +53,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | ID | Task | Trạng thái |
 | --- | --- | --- |
 | `P2-T1` | Thử nghiệm trên một repository mẫu | `DONE` |
-| `P2-T2` | Thử nghiệm trên một dự án đang phát triển | `TODO` |
+| `P2-T2` | Thử nghiệm trên một dự án đang phát triển | `DONE` |
 | `P2-T3` | Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới | `TODO` |
 
 ### Phase 3 - Release
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P2-T1`
-- Tên: Thử nghiệm trên một repository mẫu
+- ID: `P2-T2`
+- Tên: Thử nghiệm trên một dự án đang phát triển
 - Trạng thái: `DONE`
-- Mục tiêu: áp dụng AI Project OS vào một Git repository mẫu để xác nhận starter và script cài đặt tạo được bộ khung dùng được.
+- Mục tiêu: xác nhận script cài đặt bảo toàn file hiện có khi áp dụng vào một repository đang phát triển đã có `AGENTS.md` và `.ai/`.
 
 ## Task tiếp theo dự kiến
 
-- `P2-T2`: Thử nghiệm trên một dự án đang phát triển.
+- `P2-T3`: Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
 
 ## Phụ thuộc
 
@@ -105,3 +105,4 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Hoàn thành `P1-T4`; Phase 1 hoàn thành, task tiếp theo dự kiến là `P2-T1`.
 - 2026-07-23: Bắt đầu `P2-T1` để thử nghiệm trên một repository mẫu.
 - 2026-07-23: Hoàn thành `P2-T1`; task tiếp theo dự kiến là `P2-T2`.
+- 2026-07-23: Bắt đầu và hoàn thành `P2-T2` bằng thử nghiệm an toàn trên repository đang phát triển hiện tại.
