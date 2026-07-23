@@ -106,7 +106,7 @@ Vì đây là repository tài liệu, kiểm thử tập trung vào:
 - Kiểm tra từ khóa bắt buộc.
 - Kiểm tra Markdown cơ bản.
 - Kiểm tra nội dung starter không lẫn trạng thái riêng của AI Project OS.
-- Kiểm tra trạng thái `P0-T1` thống nhất giữa roadmap, task và checklist.
+- Kiểm tra trạng thái task hiện tại thống nhất giữa roadmap, task và checklist.
 - Chạy `git diff --check`.
 - Xem lại toàn bộ `git diff`.
 
@@ -123,7 +123,7 @@ Các script cài đặt và đóng gói release sẽ được thiết kế ở c
 
 - Tài liệu dùng tiếng Việt, UTF-8.
 - Không chứa secret, token, mật khẩu hoặc file `.env`.
-- Không tạo script cài đặt trong `P0-T1`.
+- Không tạo script cài đặt trước Phase 1.
 - Không triển khai tính năng nghiệp vụ.
 - Không tự đặt Git remote.
 - Không tự thay đổi Git user.name hoặc user.email ở phạm vi global.

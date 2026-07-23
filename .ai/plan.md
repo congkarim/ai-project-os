@@ -1,45 +1,47 @@
-# Plan task P0-T1
+# Plan task P0-T2
 
 File này đã được rút gọn sau khi hoàn thành task theo quy tắc reset.
 
 ## Task vừa hoàn thành
 
-- ID: `P0-T1`
-- Tên: Khởi tạo nền tảng AI Project OS.
+- ID: `P0-T2`
+- Tên: Rà soát schema và loại bỏ nội dung trùng lặp.
 - Ngày hoàn thành: 2026-07-23.
 
 ## Các phương án chính đã xem xét
 
-- Tạo tài liệu Markdown thủ công theo schema bắt buộc.
-- Tạo thêm script sinh template.
-- Bổ sung file trạng thái máy đọc được như `state.yaml` hoặc `session.md`.
+- Rút gọn README và bổ sung ranh giới nguồn sự thật.
+- Rút mạnh starter để chỉ còn placeholder.
+- Tách schema thành file riêng.
 
 ## Phương án được chọn
 
-Tạo tài liệu Markdown thủ công, kiểm tra bằng shell và Git.
+Rút gọn README và bổ sung ranh giới nguồn sự thật.
 
 ## Lý do
 
-Phương án này đúng phạm vi `P0-T1`, không tạo automation, không thêm dependency và dễ review bằng Git diff.
+Phương án này giảm lặp ở nơi ít rủi ro nhưng vẫn giữ `AGENTS.md` là rule vận hành chính và giữ starter template tự dùng được khi sao chép sang repository mới.
 
 ## Phát hiện quan trọng
 
-- `.git` ban đầu tồn tại nhưng trống và read-only trong sandbox; cần chạy `git init` ngoài sandbox để khởi tạo Git metadata.
-- `starter/` cần giữ độc lập, không chứa tên riêng hoặc trạng thái task của repository chính.
+- `README.md` nên hướng dẫn sử dụng bộ khung, không sao chép đầy đủ workflow đã có trong `AGENTS.md`.
+- `global/AGENTS.md` và `starter/AGENTS.md` vẫn cần lặp một số Git rule vì chúng được dùng độc lập ngoài repository này.
+- Một số dòng lặp còn lại là cấu trúc Markdown hoặc schema bắt buộc, không nên xóa trong task này.
+- Không cần ADR mới vì không thay đổi kiến trúc đã chốt.
 
 ## Kết quả kiểm thử
 
-- Liệt kê cây thư mục: đạt, cấu trúc bắt buộc đã tồn tại.
-- Xác nhận file bắt buộc bằng `test -f`: đạt.
-- Kiểm tra file rỗng bằng `find ... -size 0`: đạt, không có file rỗng.
+- `wc -l`: tổng Markdown giảm từ 1.439 xuống 1.401 dòng.
+- `awk` tìm dòng lặp: đạt, các dòng còn lặp là cấu trúc/schema hoặc rule cần dùng độc lập.
+- `rg` keyword/rule quan trọng: đạt.
+- Kiểm tra starter không chứa `AI Project OS`, `ai-project-os` hoặc task riêng của repository chính: đạt.
+- Kiểm tra global rule không chứa trạng thái task cụ thể: đạt.
+- Kiểm tra không có file rỗng: đạt.
 - Kiểm tra Markdown cơ bản: đạt, các file Markdown có H1 và code fence cân bằng.
-- Tìm từ khóa bắt buộc bằng `rg`: đạt.
-- Kiểm tra starter không chứa `AI Project OS`, `ai-project-os` hoặc trạng thái task riêng: đạt.
-- Kiểm tra global rule không chứa task cụ thể: đạt.
-- Kiểm tra thống nhất `P0-T1` giữa `roadmap.md`, `task.md` và `task-checklist.md`: đạt.
+- Kiểm tra thống nhất `P0-T2` giữa `roadmap.md`, `task.md` và `task-checklist.md`: đạt.
 - Chạy `git diff --check`: đạt.
 - Xem lại diff: đạt.
 
 ## Vấn đề chuyển sang task sau
 
-- `P0-T2`: rà soát schema và loại bỏ nội dung trùng lặp giữa root, global và starter.
+- `P0-T3`: chốt AI Project OS v0.1, bao gồm rà soát lần cuối các tiêu chí release nội bộ trước khi chuyển sang Phase 1.

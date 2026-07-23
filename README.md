@@ -16,6 +16,17 @@ Phiên bản đầu chỉ cung cấp tài liệu và template. Chưa có script 
 - `global/AGENTS.md`: mẫu rule chung để đặt tại `~/.codex/AGENTS.md`.
 - `starter/`: bộ khung sạch để sao chép vào repository mới.
 
+## Nguồn sự thật
+
+- `AGENTS.md` là nguồn sự thật cho workflow agent trong repository này.
+- `.ai/context.md` là nguồn sự thật cho bối cảnh, phạm vi và ràng buộc dài hạn.
+- `.ai/roadmap.md` là nguồn sự thật cho phase và danh sách task.
+- `.ai/task.md` là nguồn sự thật cho task hiện tại.
+- `.ai/task-checklist.md` là nguồn sự thật cho việc đã làm và việc còn lại trong task.
+- `.ai/plan.md` là không gian làm việc tạm thời, phải rút gọn khi đóng task.
+- `.ai/decisions.md` là nguồn sự thật cho quyết định kiến trúc dài hạn.
+- `README.md` chỉ hướng dẫn sử dụng bộ khung, không lặp đầy đủ rule vận hành.
+
 ## Thiết lập global rule
 
 Sao chép rule chung:
@@ -25,7 +36,7 @@ mkdir -p ~/.codex
 cp global/AGENTS.md ~/.codex/AGENTS.md
 ```
 
-File global giúp nhắc agent kiểm tra Git, không phá hủy thay đổi của người dùng, không commit secret, không dùng git add . và ưu tiên đọc tài liệu quản lý trong từng repository.
+File global là lớp rule tối thiểu. Khi repository có `AGENTS.md`, rule project-level là nguồn chi tiết hơn.
 
 ## Áp dụng cho dự án mới
 
@@ -57,34 +68,15 @@ Sau khi sao chép:
 
 ## Bắt đầu một phiên làm việc
 
-Agent phải đọc theo thứ tự:
-
-1. `AGENTS.md`
-2. `.ai/context.md`
-3. `.ai/roadmap.md`
-4. `.ai/task.md`
-5. `.ai/task-checklist.md`
-6. `.ai/plan.md`
-7. `.ai/decisions.md` nếu liên quan đến kiến trúc
-
-Sau đó chạy `git status --short`, đối chiếu trạng thái giữa roadmap, task và checklist, rồi báo cáo ngắn gọn việc cần làm tiếp theo.
+Agent đọc theo trình tự trong `AGENTS.md`, chạy `git status --short`, đối chiếu roadmap, task và checklist, rồi báo cáo ngắn gọn trạng thái thực tế.
 
 ## Hoàn thành một task
 
-Trước khi đóng task:
-
-1. Đối chiếu Definition of Done trong `AGENTS.md`.
-2. Chạy kiểm thử bắt buộc.
-3. Ghi kết quả kiểm thử.
-4. Cập nhật `roadmap.md`, `task.md`, `task-checklist.md`, `plan.md` và `decisions.md` nếu cần.
-5. Kiểm tra `git diff`.
-6. Stage đúng file thuộc task.
-7. Kiểm tra `git diff --cached`.
-8. Commit bằng tiếng Việt.
+Trước khi đóng task, agent phải đối chiếu Definition of Done trong `AGENTS.md`, chạy kiểm thử bắt buộc, ghi kết quả, cập nhật tài liệu trạng thái, xem lại Git diff và commit đúng phạm vi.
 
 ## Quy tắc commit
 
-Định dạng mặc định:
+Định dạng mặc định nằm trong `AGENTS.md`:
 
 ```text
 [P<phase>-T<task>] <Mô tả kết quả>
@@ -96,23 +88,11 @@ Ví dụ:
 [P0-T1] Khởi tạo nền tảng AI Project OS
 ```
 
-Không dùng git add . trong mọi trường hợp. Chỉ stage file thuộc phạm vi task. Không commit secret, token, mật khẩu, file `.env` hoặc thông tin nhạy cảm.
+Không dùng git add . trong mọi trường hợp. Chỉ stage file thuộc phạm vi task và không commit secret.
 
 ## Reset plan.md
 
-Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phương án, phát hiện và kết quả kiểm thử.
-
-Khi task hoàn thành, rút gọn `plan.md` và chỉ giữ:
-
-- Task vừa hoàn thành.
-- Các phương án chính đã xem xét.
-- Phương án được chọn.
-- Lý do.
-- Phát hiện quan trọng.
-- Kết quả kiểm thử.
-- Vấn đề chuyển sang task sau.
-
-Không giữ suy luận dài dòng hoặc nhật ký hội thoại.
+Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phương án, phát hiện và kết quả kiểm thử. Khi task hoàn thành, rút gọn theo quy tắc trong `AGENTS.md` và chỉ giữ thông tin cần cho task sau; không giữ suy luận dài dòng hoặc nhật ký hội thoại.
 
 ## Giới hạn của phiên bản đầu
 

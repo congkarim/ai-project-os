@@ -121,4 +121,4 @@ Repository này chỉ chứa bộ khung quản lý dự án cho coding agent:
 - Template dùng lại cho repository mới.
 - Tài liệu hướng dẫn áp dụng.
 
-Không triển khai tính năng nghiệp vụ, ứng dụng web, API, giao diện hoặc automation trong task `P0-T1`.
+Không triển khai tính năng nghiệp vụ, ứng dụng web, API hoặc giao diện. Automation chỉ được thêm khi roadmap và task hiện tại cho phép rõ ràng.

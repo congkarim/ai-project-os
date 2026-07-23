@@ -16,15 +16,15 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 0 - Foundation.
-- Task hiện tại: `P0-T1` - Khởi tạo nền tảng AI Project OS.
+- Task hiện tại: `P0-T2` - Rà soát schema và loại bỏ nội dung trùng lặp.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã tạo bộ quy tắc và template ban đầu, đã chạy kiểm thử bắt buộc.
+- Tiến độ: đã rút gọn README, bổ sung ranh giới nguồn sự thật và loại bỏ nhắc task cũ khỏi rule dài hạn.
 
 ## Bảng các phase
 
 | Phase | Tên | Mục tiêu | Trạng thái |
 | --- | --- | --- | --- |
-| Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DONE` |
+| Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DOING` |
 | Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `TODO` |
 | Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `TODO` |
 | Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `TODO` |
@@ -36,7 +36,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | ID | Task | Trạng thái |
 | --- | --- | --- |
 | `P0-T1` | Khởi tạo nền tảng AI Project OS | `DONE` |
-| `P0-T2` | Rà soát schema và loại bỏ nội dung trùng lặp | `TODO` |
+| `P0-T2` | Rà soát schema và loại bỏ nội dung trùng lặp | `DONE` |
 | `P0-T3` | Chốt AI Project OS v0.1 | `TODO` |
 
 ### Phase 1 - Automation
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P0-T1`
-- Tên: Khởi tạo nền tảng AI Project OS
+- ID: `P0-T2`
+- Tên: Rà soát schema và loại bỏ nội dung trùng lặp
 - Trạng thái: `DONE`
-- Mục tiêu: tạo cấu trúc tài liệu, rule và starter template để dùng lại cho các repository khác.
+- Mục tiêu: xác định nguồn sự thật cho từng loại tài liệu, giảm lặp không cần thiết và giữ starter template sạch.
 
 ## Task tiếp theo dự kiến
 
-- `P0-T2`: Rà soát schema và loại bỏ nội dung trùng lặp.
+- `P0-T3`: Chốt AI Project OS v0.1.
 
 ## Phụ thuộc
 
@@ -90,3 +90,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 - 2026-07-23: Khởi tạo roadmap ban đầu cho AI Project OS và bắt đầu `P0-T1`.
 - 2026-07-23: Hoàn thành `P0-T1`; task tiếp theo dự kiến là `P0-T2`.
+- 2026-07-23: Bắt đầu `P0-T2` để rà soát schema và loại bỏ nội dung trùng lặp.
+- 2026-07-23: Hoàn thành `P0-T2`; task tiếp theo dự kiến là `P0-T3`.
