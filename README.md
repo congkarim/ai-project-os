@@ -2,7 +2,9 @@
 
 AI Project OS là bộ khung tài liệu và quy tắc để quản lý dự án khi làm việc với Codex hoặc coding agent khác. Mục tiêu là giúp agent luôn biết bối cảnh, roadmap, task hiện tại, checklist, kế hoạch và các quyết định dài hạn ngay trong repository.
 
-Phiên bản đầu chỉ cung cấp tài liệu và template. Chưa có script cài đặt, automation, ứng dụng web, API hoặc quy trình phát hành tự động.
+Phiên bản hiện tại: `v0.1.0`.
+
+`v0.1.0` là baseline tài liệu thủ công: chỉ cung cấp rule, tài liệu trạng thái và starter template. Chưa có script cài đặt, automation, ứng dụng web, API, package release hoặc Git tag phát hành.
 
 ## Thành phần
 
@@ -15,6 +17,17 @@ Phiên bản đầu chỉ cung cấp tài liệu và template. Chưa có script 
 - `.ai/decisions.md`: nhật ký quyết định kiến trúc.
 - `global/AGENTS.md`: mẫu rule chung để đặt tại `~/.codex/AGENTS.md`.
 - `starter/`: bộ khung sạch để sao chép vào repository mới.
+
+## Phạm vi v0.1.0
+
+`v0.1.0` dùng được bằng cách sao chép thủ công:
+
+- Sao chép `global/AGENTS.md` vào cấu hình global của Codex nếu cần rule chung.
+- Sao chép `starter/AGENTS.md` và `starter/.ai/` vào repository mới.
+- Điền lại placeholder trong starter bằng thông tin thật của dự án.
+- Quản lý task bằng Git và các file `.ai/`.
+
+Các phần chưa thuộc `v0.1.0`: script cài đặt, kiểm tra schema tự động, package release, Git tag phát hành và workflow CI/CD.
 
 ## Nguồn sự thật
 
@@ -100,6 +113,7 @@ Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phư
 - Chưa có kiểm tra tự động cho schema Markdown.
 - Chưa có cơ chế đồng bộ trạng thái tự động.
 - Chưa có package release.
+- Chưa có Git tag phát hành.
 - Chưa áp đặt công nghệ cho dự án sử dụng template.
 
 ## Roadmap của AI Project OS

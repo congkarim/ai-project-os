@@ -1,4 +1,4 @@
-# Checklist task P0-T2
+# Checklist task P0-T3
 
 Ký hiệu:
 
@@ -12,7 +12,7 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 
 ## Chuẩn bị
 
-- [x] Xác nhận task tiếp theo từ `P0-T1` là `P0-T2`.
+- [x] Xác nhận task tiếp theo từ `P0-T2` là `P0-T3`.
 - [x] Đọc `AGENTS.md`.
 - [x] Đọc `.ai/context.md`.
 - [x] Đọc `.ai/roadmap.md`.
@@ -24,58 +24,59 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 
 ## Khảo sát repository
 
-- [x] Liệt kê các file Markdown.
-- [x] Thống kê số dòng từng file bằng `wc -l`.
-- [x] Tìm dòng lặp bằng `awk`.
-- [x] Tìm rule/keyword quan trọng bằng `rg`.
-- [x] Xác định các đoạn lặp cần giữ vì phục vụ vai trò khác nhau.
-- [x] Xác định các đoạn lặp cần rút gọn.
+- [x] Tìm nội dung liên quan đến phiên bản, Phase 0, `P0-T3`, `P1-T1`, release và tag.
+- [x] Liệt kê các file hiện có.
+- [x] Thống kê số dòng Markdown.
+- [x] Kiểm tra chưa có script cài đặt.
+- [x] Kiểm tra chưa có Git tag.
 
 ## Thiết kế
 
-- [x] Chốt root `AGENTS.md` là nguồn sự thật workflow cho repository này.
-- [x] Chốt `README.md` là hướng dẫn sử dụng, không phải rule vận hành đầy đủ.
-- [x] Chốt `global/AGENTS.md` là rule chung tối thiểu.
-- [x] Chốt `starter/AGENTS.md` phải độc lập cho repository mới.
+- [x] Chốt `v0.1.0` là baseline tài liệu thủ công.
+- [x] Chốt không tạo package release hoặc Git tag trong `P0-T3`.
+- [x] Chốt Phase 1 bắt đầu từ `P1-T1`.
 - [x] Chốt danh sách file cần sửa.
+- [x] Chốt có cần ADR mới hay không.
 
 ## Triển khai
 
-- [x] Chuyển `roadmap.md` sang task `P0-T2`.
-- [x] Viết lại `.ai/task.md` cho `P0-T2`.
-- [x] Viết lại `.ai/task-checklist.md` cho `P0-T2`.
-- [x] Viết lại `.ai/plan.md` cho `P0-T2`.
-- [x] Rút gọn `README.md` ở các đoạn lặp workflow.
-- [x] Bổ sung ranh giới nguồn sự thật nếu cần.
+- [x] Chuyển `roadmap.md` sang task `P0-T3`.
+- [x] Viết lại `.ai/task.md` cho `P0-T3`.
+- [x] Viết lại `.ai/task-checklist.md` cho `P0-T3`.
+- [x] Viết lại `.ai/plan.md` cho `P0-T3`.
+- [x] Cập nhật README với phiên bản `v0.1.0`.
+- [x] Cập nhật `.ai/context.md` về phân phối v0.1.
+- [x] Cập nhật `.ai/decisions.md` nếu cần ADR mới.
 - [x] Cập nhật checklist sau khi sửa nội dung.
 
 ## Kiểm tra nội dung
 
 - [x] Kiểm tra README còn đủ hướng dẫn áp dụng bộ khung.
-- [x] Kiểm tra root `AGENTS.md` còn đủ workflow, Definition of Done và Git rule.
-- [x] Kiểm tra `global/AGENTS.md` không chứa trạng thái task cụ thể.
-- [x] Kiểm tra `starter/AGENTS.md` còn dùng được độc lập.
-- [x] Kiểm tra `starter/.ai/` vẫn có schema đầy đủ và placeholder rõ ràng.
-- [x] Kiểm tra `decisions.md` không cần ADR mới.
+- [x] Kiểm tra README phân biệt v0.1 với release `v1.0.0`.
+- [x] Kiểm tra `.ai/context.md` không hứa automation trước Phase 1.
+- [x] Kiểm tra roadmap ghi đúng task tiếp theo là `P1-T1`.
+- [x] Kiểm tra starter vẫn dùng placeholder rõ ràng.
+- [x] Kiểm tra global rule vẫn không chứa trạng thái task cụ thể.
 
 ## Kiểm thử kỹ thuật
 
-- [x] Chạy `wc -l` sau khi chỉnh.
-- [x] Chạy `awk` tìm dòng lặp sau khi chỉnh.
-- [x] Chạy `rg` tìm keyword/rule quan trọng.
-- [x] Kiểm tra starter không chứa thông tin riêng như tên `AI Project OS`.
-- [x] Kiểm tra global rule không chứa trạng thái task cụ thể.
 - [x] Kiểm tra không có file rỗng.
 - [x] Kiểm tra Markdown cơ bản.
-- [x] Kiểm tra `roadmap.md`, `task.md` và `task-checklist.md` thống nhất về `P0-T2`.
+- [x] Tìm `v0.1.0`, `P0-T3`, `P1-T1`.
+- [x] Kiểm tra starter không chứa thông tin riêng như tên `AI Project OS`.
+- [x] Kiểm tra global rule không chứa trạng thái task cụ thể.
+- [x] Kiểm tra không có script mới.
+- [x] Kiểm tra không có Git tag mới.
+- [x] Kiểm tra `roadmap.md`, `task.md` và `task-checklist.md` thống nhất về `P0-T3`.
 - [x] Chạy `git diff --check`.
 - [x] Xem lại toàn bộ `git diff`.
 
 ## Cập nhật tài liệu
 
-- [x] Chuyển `P0-T2` thành `DONE` trong `.ai/roadmap.md`.
+- [x] Chuyển `P0-T3` thành `DONE` trong `.ai/roadmap.md`.
+- [x] Chuyển Phase 0 thành `DONE` trong `.ai/roadmap.md`.
 - [x] Ghi kết quả thực hiện vào `.ai/task.md`.
-- [x] Đặt task tiếp theo dự kiến là `P0-T3`.
+- [x] Đặt task tiếp theo dự kiến là `P1-T1`.
 - [x] Rút gọn `.ai/plan.md` theo quy tắc reset.
 - [x] Cập nhật checklist sau khi kiểm thử đạt.
 
@@ -84,7 +85,7 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 - [x] Chạy `git status --short` trước khi stage.
 - [x] Stage chính xác file thuộc task, không dùng git add . trong mọi trường hợp.
 - [x] Chạy `git diff --cached`.
-- [x] Commit với thông điệp `[P0-T2] Rà soát schema và giảm trùng lặp`.
+- [x] Commit với thông điệp `[P0-T3] Chốt AI Project OS v0.1`.
 - [x] Lấy commit hash sau commit.
 
 ## Đóng task
@@ -92,7 +93,7 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 - [x] Xác nhận Definition of Done đã đủ.
 - [x] Xác nhận không còn `[~]` hoặc `[!]`.
 - [x] Xác nhận không còn mục bắt buộc `[ ]`.
-- [x] Xác nhận task không bắt đầu `P0-T3`.
+- [x] Xác nhận task không bắt đầu `P1-T1`.
 
 ## Chuẩn bị handoff
 

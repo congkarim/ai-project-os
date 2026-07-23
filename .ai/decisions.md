@@ -63,3 +63,35 @@ Agent phải đọc và đối chiếu `roadmap.md`, `task.md`, `task-checklist.
 ### Điều kiện xem xét lại
 
 Chỉ bổ sung khi có automation đảm bảo đồng bộ tự động.
+
+## ADR-003 - Chốt v0.1.0 là baseline tài liệu thủ công
+
+- ID: `ADR-003`
+- Ngày: 2026-07-23
+- Trạng thái: Chấp nhận
+
+### Bối cảnh
+
+Sau Phase 0, AI Project OS cần một mốc baseline để người dùng có thể áp dụng thủ công trước khi có automation cài đặt, package release hoặc Git tag phát hành.
+
+### Các phương án
+
+- Chốt `v0.1.0` bằng tài liệu và tiếp tục phân phối thủ công.
+- Gắn Git tag `v0.1.0`.
+- Tạo package hoặc release artifact riêng.
+
+### Phương án được chọn
+
+Chốt `v0.1.0` bằng tài liệu và tiếp tục phân phối thủ công.
+
+### Lý do
+
+Phase 0 chỉ nhằm hoàn thiện nền tảng tài liệu. Git tag và phát hành chính thức đã thuộc Phase 3; script cài đặt thuộc Phase 1.
+
+### Hệ quả
+
+`v0.1.0` là baseline có thể sao chép và dùng thủ công, nhưng chưa phải release package và chưa có cam kết idempotency tự động.
+
+### Điều kiện xem xét lại
+
+Xem xét lại khi Phase 1 có script cài đặt hoặc khi Phase 3 chuẩn bị đóng gói release chính thức.

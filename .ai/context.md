@@ -8,6 +8,8 @@ AI Project OS.
 
 Xây dựng một bộ khung quản lý dự án có thể tái sử dụng trong mọi repository làm việc với Codex hoặc coding agent khác. Bộ khung giúp agent bắt đầu phiên làm việc từ tài liệu trong repository, theo dõi task hiện tại, kiểm tra Definition of Done và ghi lại quyết định dài hạn.
 
+Baseline hiện tại là `v0.1.0`, một phiên bản tài liệu thủ công để sử dụng bằng cách sao chép file. Đây chưa phải package release và chưa có Git tag phát hành.
+
 ## Vấn đề cần giải quyết
 
 Coding agent thường mất bối cảnh giữa các phiên, dễ dựa vào lịch sử chat, dễ bỏ sót checklist, dễ commit ngoài phạm vi hoặc tuyên bố hoàn thành khi chưa kiểm thử. AI Project OS giải quyết bằng cách chuẩn hóa các file quản lý tối thiểu ngay trong repository.
@@ -112,12 +114,12 @@ Vì đây là repository tài liệu, kiểm thử tập trung vào:
 
 ## Cách phát hành hoặc phân phối
 
-Phiên bản đầu được phân phối bằng cách sao chép thủ công:
+Baseline `v0.1.0` được phân phối bằng cách sao chép thủ công:
 
 - `global/AGENTS.md` vào `~/.codex/AGENTS.md`.
 - `starter/AGENTS.md` và `starter/.ai/` vào repository mới.
 
-Các script cài đặt và đóng gói release sẽ được thiết kế ở các phase sau.
+Các script cài đặt sẽ được thiết kế ở Phase 1. Package release và Git tag phát hành nằm ngoài `v0.1.0` và sẽ được xử lý ở Phase 3.
 
 ## Ràng buộc
 
