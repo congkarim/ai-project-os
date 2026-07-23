@@ -2,11 +2,11 @@
 
 ## ID
 
-`P1-T3`
+`P1-T4`
 
 ## Tên task
 
-Viết script cài đặt cho Windows PowerShell.
+Kiểm thử idempotency và bảo toàn file hiện có.
 
 ## Phase
 
@@ -18,122 +18,126 @@ Phase 1 - Automation.
 
 ## Mục tiêu
 
-Viết script PowerShell để cài AI Project OS vào repository mới hoặc repository đang có trên Windows, với hành vi tương đương `scripts/install.sh`.
+Kiểm thử script cài đặt để xác nhận chạy lại không tạo thay đổi mới, dry-run không ghi file, conflict được bảo toàn mặc định, và backup/overwrite chỉ xảy ra khi người dùng chọn rõ.
 
 ## Bối cảnh
 
-`P1-T2` đã tạo script Bash cho Linux/macOS. `P1-T3` cần tạo script PowerShell theo cùng thiết kế: mặc định không ghi đè, có dry-run, backup, overwrite, conflict handling và idempotency.
+`P1-T2` đã tạo `scripts/install.sh`. `P1-T3` đã tạo `scripts/install.ps1` nhưng môi trường lúc đó chưa có `pwsh`, nên mới kiểm tra tĩnh. `P1-T4` cần kiểm thử hành vi an toàn theo `docs/install-design.md`.
 
 ## Phạm vi
 
-- Tạo `scripts/install.ps1`.
-- Hỗ trợ project mode cài `starter/AGENTS.md` và `starter/.ai/`.
-- Hỗ trợ global mode cài `global/AGENTS.md`.
-- Hỗ trợ `-Target`, `-Global`, `-DryRun`, `-Overwrite`, `-Backup`, `-Yes`, `-Help`.
-- Mặc định không ghi đè file conflict.
-- Cập nhật README, context, roadmap, task, checklist và plan.
-- Commit task `P1-T3`.
+- Kiểm thử `scripts/install.sh` bằng thư mục tạm trong `/tmp`.
+- Kiểm thử dry-run, project install, chạy lại project install, conflict mặc định, backup, overwrite và global mode.
+- Kiểm tra `scripts/install.ps1`; nếu có `pwsh`, chạy test runtime tương đương ở mức phù hợp.
+- Cập nhật README/context nếu phát hiện giới hạn hoặc hướng dẫn cần chỉnh.
+- Cập nhật roadmap, task, checklist và plan.
+- Commit task `P1-T4`.
 
 ## Ngoài phạm vi
 
-- Không thay đổi script Linux/macOS nếu không cần.
-- Không cài thật vào Windows hoặc home thật.
+- Không thay đổi hành vi script nếu kiểm thử đạt.
+- Không cài thật vào home của người dùng; global mode phải dùng `HOME` tạm khi kiểm thử Bash.
 - Không tạo package release.
 - Không gắn Git tag.
-- Không bắt đầu `P1-T4`.
+- Không bắt đầu Phase 2.
 
 ## Đầu vào
 
 - `docs/install-design.md`.
 - `scripts/install.sh`.
+- `scripts/install.ps1`.
 - `starter/`.
 - `global/AGENTS.md`.
 - ADR-004.
 
 ## Đầu ra
 
-- `scripts/install.ps1`.
-- README có hướng dẫn chạy PowerShell.
-- Kết quả kiểm tra được ghi lại.
-- Commit Git cho task `P1-T3`.
+- Kết quả kiểm thử idempotency và bảo toàn file hiện có được ghi lại.
+- Tài liệu trạng thái cập nhật thống nhất cho `P1-T4`.
+- Commit Git cho task `P1-T4`.
 
 ## Cách thực hiện đã chốt
 
-Triển khai script PowerShell đơn file, bám theo hành vi của `scripts/install.sh` và `docs/install-design.md`. Vì môi trường hiện không có `pwsh`, task này kiểm tra tĩnh thay vì chạy PowerShell thật.
+Chạy kiểm thử thực tế trong `/tmp` cho `scripts/install.sh` vì môi trường hiện hỗ trợ Bash. Với `scripts/install.ps1`, kiểm tra có `pwsh`; nếu có thì chạy runtime trên thư mục tạm, nếu không ghi rõ giới hạn và giữ phần kiểm thử PowerShell cho môi trường phù hợp.
 
 ## Tiêu chí chấp nhận
 
-- `scripts/install.ps1` tồn tại.
-- Script có `param(...)` và hỗ trợ các tham số bắt buộc.
-- Script có project mode, global mode, dry-run, backup, overwrite, conflict handling.
-- Script mặc định không ghi đè file conflict.
-- Script không có `git add`.
-- README có hướng dẫn PowerShell.
-- Roadmap, task và checklist thống nhất `P1-T3`.
-- Task tiếp theo dự kiến là `P1-T4`.
+- Dry-run project mode không ghi file vào target.
+- Lần cài project mode đầu tạo file từ `starter/`.
+- Lần cài project mode thứ hai báo bỏ qua/unchanged và không làm dirty target Git.
+- Conflict mặc định trả lỗi và không ghi đè nội dung hiện có.
+- `--backup` tạo file `.bak.<timestamp>` và ghi nội dung nguồn.
+- `--overwrite` ghi đè khi người dùng chọn rõ.
+- Global mode cài vào `HOME` tạm, không đụng home thật.
+- `scripts/install.ps1` được kiểm tra runtime nếu có `pwsh`, hoặc ghi rõ giới hạn nếu không có.
+- Roadmap, task và checklist thống nhất `P1-T4`.
+- Task tiếp theo dự kiến là `P2-T1`.
 - Markdown cơ bản không lỗi.
 - `git diff --check` đạt.
-- Commit được tạo với thông điệp `[P1-T3] Viết script cài đặt PowerShell`.
+- Commit được tạo với thông điệp `[P1-T4] Kiểm thử idempotency script cài đặt`.
 
 ## Kiểm thử bắt buộc
 
 - Chạy `git status --short` trước khi sửa và trước khi stage.
+- Chạy dry-run project mode vào thư mục tạm và xác nhận không tạo file.
+- Chạy project mode lần đầu vào Git repo tạm.
+- Chạy project mode lần thứ hai và xác nhận Git status không đổi.
+- Chạy conflict mặc định với `AGENTS.md` khác nội dung và xác nhận exit code khác `0`.
+- Chạy backup với file conflict và xác nhận backup tồn tại.
+- Chạy overwrite với file conflict và xác nhận nội dung bị thay bằng nguồn.
+- Chạy global mode với `HOME` tạm.
 - Kiểm tra có hoặc không có `pwsh`.
-- Nếu có `pwsh`, chạy parser/test cơ bản.
-- Nếu không có `pwsh`, ghi rõ giới hạn và kiểm tra tĩnh.
-- Kiểm tra script có các từ khóa `DryRun`, `Backup`, `Overwrite`, `Conflict`, `Get-FileHash`, `Copy-Item`.
-- Kiểm tra script không có `git add`.
+- Nếu có `pwsh`, chạy test runtime PowerShell tương đương ở mức phù hợp.
+- Nếu không có `pwsh`, ghi rõ giới hạn và kiểm tra tĩnh PowerShell.
+- Kiểm tra script không có `git add .`.
 - Kiểm tra không có file rỗng.
 - Kiểm tra Markdown cơ bản.
-- Kiểm tra thống nhất `P1-T3` giữa roadmap, task và checklist.
+- Kiểm tra thống nhất `P1-T4` giữa roadmap, task và checklist.
 - Chạy `git diff --check`.
 - Xem lại toàn bộ `git diff`.
 
 ## Rủi ro
 
-- Không có PowerShell trong môi trường hiện tại nên chưa thể chạy test thật.
-- PowerShell trên Windows có khác biệt đường dẫn so với Linux.
-- Cần `P1-T4` để kiểm thử idempotency và bảo toàn file hiện có trên môi trường phù hợp.
+- Môi trường có thể vẫn chưa có `pwsh`, khiến kiểm thử PowerShell bị giới hạn.
+- Global mode nếu chạy sai HOME có thể đụng cấu hình thật; task phải dùng HOME tạm.
+- Backup timestamp có độ phân giải giây, nên test backup cần tránh giả định quá chặt về tên chính xác.
 
 ## Blocker
 
-Không có blocker cho việc tạo script. Kiểm thử runtime PowerShell bị giới hạn vì môi trường hiện không có `pwsh`.
+Không có blocker.
 
 ## Kết quả task trước
 
-`P1-T2` đã viết script Linux/macOS và commit `95b4a31df785e4eeb145b70316eaba3d9b96376c`.
+`P1-T3` đã viết script PowerShell và commit `6fb6b34`.
 
 ## Task tiếp theo dự kiến
 
-`P1-T4` - Kiểm thử idempotency và bảo toàn file hiện có.
+`P2-T1` - Thử nghiệm trên một repository mẫu.
 
 ## Kết quả thực hiện
 
-Đã viết script cài đặt Windows PowerShell:
+Đã kiểm thử idempotency và bảo toàn file hiện có của script cài đặt:
 
-- Tạo `scripts/install.ps1` dạng đơn file.
-- Hỗ trợ project mode cài `starter/AGENTS.md` và `starter/.ai/`.
-- Hỗ trợ global mode cài `global/AGENTS.md` vào `~/.codex/AGENTS.md`.
-- Hỗ trợ `-Target`, `-Global`, `-DryRun`, `-Overwrite`, `-Backup`, `-Yes`, `-Help`.
-- Mặc định không ghi đè file conflict; conflict trả lỗi và hướng dẫn dùng `-Backup` hoặc `-Overwrite`.
-- Dùng `Get-FileHash` để nhận diện file giống nội dung.
-- Cập nhật README và context với hướng dẫn PowerShell.
+- Dry-run project mode bằng `scripts/install.sh` không tạo `AGENTS.md` hoặc `.ai/` trong target tạm.
+- Project mode lần đầu tạo đủ file từ `starter/`.
+- Project mode lần thứ hai báo `unchanged` và `git status --short` của Git repo tạm không đổi.
+- Conflict mặc định trả lỗi khác `0`, báo danh sách conflict và giữ nguyên nội dung `AGENTS.md` hiện có.
+- `--backup` tạo một file `AGENTS.md.bak.<timestamp>`, giữ nội dung cũ trong backup và ghi nội dung nguồn vào `AGENTS.md`.
+- `--overwrite` ghi nội dung nguồn vào file conflict và không tạo backup.
+- Global mode dùng `HOME` tạm trong `/tmp`, ghi `global/AGENTS.md` vào `.codex/AGENTS.md` và chạy lại không đổi.
+- Môi trường hiện không có `pwsh`, nên chưa chạy runtime PowerShell; kiểm tra tĩnh `scripts/install.ps1` đạt.
 
 Kết quả kiểm thử chính:
 
-- `test -s scripts/install.ps1`: đạt.
-- `command -v pwsh`: không có `pwsh` trong môi trường hiện tại.
-- Kiểm tra tĩnh từ khóa `param`, `DryRun`, `Backup`, `Overwrite`, `Conflict`, `Get-FileHash`, `Copy-Item`, `-Help`: đạt.
-- `rg -n 'git add' scripts/install.ps1`: không có kết quả, đạt.
-- `find AGENTS.md README.md .ai global starter docs scripts -type f -size 0 -print`: không có file rỗng, đạt.
-- Kiểm tra H1 và code fence Markdown bằng `rg` và `awk`: không phát hiện lỗi.
-- Kiểm tra thống nhất `P1-T3` trong `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`: đạt.
-- Kiểm tra starter không chứa tên riêng `AI Project OS`: đạt.
-- Kiểm tra global rule không chứa trạng thái task cụ thể: đạt.
+- Bash runtime test trong `/tmp`: 23 pass, 0 fail.
+- PowerShell: `command -v pwsh` không có kết quả.
+- Kiểm tra tĩnh PowerShell: file tồn tại, có `param`, `DryRun`, `Backup`, `Overwrite`, `Get-FileHash`, `Copy-Item`: đạt.
+- Kiểm tra `scripts/install.ps1` không chứa `git add`: đạt.
+- Kiểm tra không có file rỗng: đạt.
+- Kiểm tra Markdown cơ bản: đạt.
+- Kiểm tra thống nhất `P1-T4` trong `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`: đạt.
 - `git diff --check`: đạt.
 - Đã xem lại toàn bộ diff trước khi commit.
-
-Giới hạn: chưa chạy parser/runtime PowerShell vì môi trường hiện không có `pwsh`; phần này chuyển sang `P1-T4` hoặc môi trường Windows/PowerShell phù hợp.
 
 ## Ngày bắt đầu
 

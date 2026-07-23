@@ -16,16 +16,16 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 1 - Automation.
-- Task hiện tại: `P1-T3` - Viết script cài đặt cho Windows PowerShell.
+- Task hiện tại: `P1-T4` - Kiểm thử idempotency và bảo toàn file hiện có.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã viết script PowerShell tại `scripts/install.ps1` và kiểm tra tĩnh trong môi trường chưa có `pwsh`.
+- Tiến độ: đã kiểm thử idempotency và bảo toàn file hiện có cho script Bash; PowerShell được kiểm tra tĩnh vì môi trường chưa có `pwsh`.
 
 ## Bảng các phase
 
 | Phase | Tên | Mục tiêu | Trạng thái |
 | --- | --- | --- | --- |
 | Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DONE` |
-| Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `DOING` |
+| Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `DONE` |
 | Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `TODO` |
 | Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `TODO` |
 
@@ -46,7 +46,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | `P1-T1` | Thiết kế cơ chế cài đặt vào repository mới | `DONE` |
 | `P1-T2` | Viết script cài đặt cho Linux/macOS | `DONE` |
 | `P1-T3` | Viết script cài đặt cho Windows PowerShell | `DONE` |
-| `P1-T4` | Kiểm thử idempotency và bảo toàn file hiện có | `TODO` |
+| `P1-T4` | Kiểm thử idempotency và bảo toàn file hiện có | `DONE` |
 
 ### Phase 2 - Validation
 
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P1-T3`
-- Tên: Viết script cài đặt cho Windows PowerShell
+- ID: `P1-T4`
+- Tên: Kiểm thử idempotency và bảo toàn file hiện có
 - Trạng thái: `DONE`
-- Mục tiêu: triển khai script PowerShell cài đặt AI Project OS với hành vi tương đương script Linux/macOS.
+- Mục tiêu: kiểm thử script cài đặt không tạo thay đổi mới khi chạy lại và không ghi đè file conflict nếu người dùng chưa chọn rõ.
 
 ## Task tiếp theo dự kiến
 
-- `P1-T4`: Kiểm thử idempotency và bảo toàn file hiện có.
+- `P2-T1`: Thử nghiệm trên một repository mẫu.
 
 ## Phụ thuộc
 
@@ -101,3 +101,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Hoàn thành `P1-T2`; task tiếp theo dự kiến là `P1-T3`.
 - 2026-07-23: Bắt đầu `P1-T3` để viết script cài đặt cho Windows PowerShell.
 - 2026-07-23: Hoàn thành `P1-T3`; task tiếp theo dự kiến là `P1-T4`.
+- 2026-07-23: Bắt đầu `P1-T4` để kiểm thử idempotency và bảo toàn file hiện có.
+- 2026-07-23: Hoàn thành `P1-T4`; Phase 1 hoàn thành, task tiếp theo dự kiến là `P2-T1`.
