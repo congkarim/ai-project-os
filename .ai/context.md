@@ -30,6 +30,7 @@ Coding agent thường mất bối cảnh giữa các phiên, dễ dựa vào l�
 - Nhật ký quyết định kiến trúc.
 - Tài liệu thiết kế automation.
 - Script cài đặt Linux/macOS.
+- Script cài đặt Windows PowerShell.
 - Template starter cho repository mới.
 - Mẫu global rule cho `~/.codex/AGENTS.md`.
 
@@ -81,7 +82,8 @@ Coding agent thường mất bối cảnh giữa các phiên, dễ dựa vào l�
 ├── docs/
 │   └── install-design.md
 ├── scripts/
-│   └── install.sh
+│   ├── install.sh
+│   └── install.ps1
 ├── global/
 │   └── AGENTS.md
 └── starter/
@@ -105,6 +107,8 @@ git diff --cached
 git log --oneline -5
 scripts/install.sh --help
 scripts/install.sh --target /duong/dan/toi/repo --dry-run
+pwsh -File scripts/install.ps1 -Help
+pwsh -File scripts/install.ps1 -Target C:\duong\dan\repo -DryRun
 ```
 
 ## Cách kiểm thử
@@ -128,9 +132,9 @@ Baseline `v0.1.0` được phân phối bằng cách sao chép thủ công:
 - `global/AGENTS.md` vào `~/.codex/AGENTS.md`.
 - `starter/AGENTS.md` và `starter/.ai/` vào repository mới.
 
-Các script cài đặt sẽ được thiết kế ở Phase 1. Package release và Git tag phát hành nằm ngoài `v0.1.0` và sẽ được xử lý ở Phase 3.
+Cơ chế cài đặt được thiết kế và triển khai từng bước trong Phase 1. Package release và Git tag phát hành nằm ngoài `v0.1.0` và sẽ được xử lý ở Phase 3.
 
-Thiết kế cơ chế cài đặt nằm ở `docs/install-design.md`. Script Linux/macOS nằm ở `scripts/install.sh` và phải bám theo thiết kế này, đặc biệt là mặc định không ghi đè, có dry-run và xử lý conflict rõ ràng.
+Thiết kế cơ chế cài đặt nằm ở `docs/install-design.md`. Script Linux/macOS nằm ở `scripts/install.sh`; script Windows PowerShell nằm ở `scripts/install.ps1`. Cả hai phải bám theo thiết kế này, đặc biệt là mặc định không ghi đè, có dry-run và xử lý conflict rõ ràng.
 
 ## Ràng buộc
 

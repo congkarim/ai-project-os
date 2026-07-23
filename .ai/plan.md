@@ -1,53 +1,48 @@
-# Plan task P1-T2
+# Plan task P1-T3
 
 File này đã được rút gọn sau khi hoàn thành task theo quy tắc reset.
 
 ## Task vừa hoàn thành
 
-- ID: `P1-T2`
-- Tên: Viết script cài đặt cho Linux/macOS.
+- ID: `P1-T3`
+- Tên: Viết script cài đặt cho Windows PowerShell.
 - Ngày hoàn thành: 2026-07-23.
 
 ## Các phương án chính đã xem xét
 
-- Bash script đơn file.
-- Shell script sinh từ template hoặc nhiều helper.
-- Dùng ngôn ngữ khác như Python hoặc Node.
+- PowerShell script đơn file.
+- Chờ môi trường Windows/PowerShell rồi mới viết.
+- Tạo wrapper PowerShell gọi `scripts/install.sh`.
 
 ## Phương án được chọn
 
-Bash script đơn file tại `scripts/install.sh`.
+PowerShell script đơn file tại `scripts/install.ps1`.
 
 ## Lý do
 
-Phương án này không cần dependency production, phù hợp Linux/macOS và đủ để triển khai thiết kế trong `docs/install-design.md`.
+Phương án này đúng mục tiêu Windows, không phụ thuộc Bash, không cần dependency production và có thể bám theo thiết kế trong `docs/install-design.md`.
 
 ## Phát hiện quan trọng
 
-- Script phải tách rõ lập kế hoạch và ghi file để dry-run không ghi gì và prompt xảy ra trước khi apply.
-- Test global mode phải dùng `HOME` tạm để không đụng cấu hình thật.
-- Idempotency project mode có thể kiểm tra bằng lần chạy thứ hai báo `skipped: 7`.
-- Conflict mặc định phải trả lỗi và giữ nguyên file người dùng.
+- Môi trường hiện không có `pwsh`, nên task này chỉ kiểm tra tĩnh thay vì chạy parser/runtime PowerShell.
+- Tham số `-Global` được hỗ trợ qua alias `[Alias("Global")]` cho biến `$GlobalMode` để tránh dùng tên dễ nhầm với scope modifier của PowerShell.
+- Script dùng `Get-FileHash` để kiểm tra idempotency theo nội dung file.
+- Script mặc định không ghi đè conflict và hướng dẫn chạy lại với `-Backup` hoặc `-Overwrite`.
 
 ## Kết quả kiểm thử
 
-- `bash -n scripts/install.sh`: đạt.
-- `scripts/install.sh --help`: đạt.
-- Dry-run project mode vào `/tmp`: đạt, không ghi file.
-- Project mode cài vào thư mục tạm: đạt.
-- Chạy lại project mode để kiểm tra idempotency: đạt, báo `skipped: 7`.
-- Conflict mặc định: đạt, trả mã `1` và không ghi đè.
-- `--backup`: đạt, tạo backup và ghi nguồn.
-- `--overwrite`: đạt, ghi nguồn và không tạo backup.
-- Global mode với `HOME` tạm: đạt, chạy lại báo `skipped: 1`.
-- `--backup` và `--overwrite` dùng cùng lúc: đạt, trả lỗi tham số.
-- Kiểm tra script không có `git add`: đạt.
+- `test -s scripts/install.ps1`: đạt.
+- `command -v pwsh`: không có `pwsh`; ghi nhận giới hạn runtime.
+- Kiểm tra tĩnh các từ khóa `param`, `DryRun`, `Backup`, `Overwrite`, `Conflict`, `Get-FileHash`, `Copy-Item`, `-Help`: đạt.
+- `rg -n 'git add' scripts/install.ps1`: không có kết quả, đạt.
 - Kiểm tra không có file rỗng: đạt.
 - Kiểm tra Markdown cơ bản: đạt.
-- Kiểm tra thống nhất `P1-T2` giữa `roadmap.md`, `task.md` và `task-checklist.md`: đạt.
-- Chạy `git diff --check`: đạt.
+- Kiểm tra thống nhất `P1-T3` giữa `roadmap.md`, `task.md` và `task-checklist.md`: đạt.
+- Kiểm tra starter không chứa tên riêng `AI Project OS`: đạt.
+- Kiểm tra global rule không chứa trạng thái task cụ thể: đạt.
+- `git diff --check`: đạt.
 - Xem lại diff: đạt.
 
 ## Vấn đề chuyển sang task sau
 
-- `P1-T3`: viết script cài đặt cho Windows PowerShell với hành vi tương đương `scripts/install.sh`.
+- `P1-T4`: kiểm thử idempotency và bảo toàn file hiện có, bao gồm runtime PowerShell trên môi trường có `pwsh` hoặc Windows PowerShell.

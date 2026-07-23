@@ -16,9 +16,9 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 1 - Automation.
-- Task hiện tại: `P1-T2` - Viết script cài đặt cho Linux/macOS.
+- Task hiện tại: `P1-T3` - Viết script cài đặt cho Windows PowerShell.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã viết và kiểm thử script cài đặt Linux/macOS tại `scripts/install.sh`.
+- Tiến độ: đã viết script PowerShell tại `scripts/install.ps1` và kiểm tra tĩnh trong môi trường chưa có `pwsh`.
 
 ## Bảng các phase
 
@@ -45,7 +45,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | --- | --- | --- |
 | `P1-T1` | Thiết kế cơ chế cài đặt vào repository mới | `DONE` |
 | `P1-T2` | Viết script cài đặt cho Linux/macOS | `DONE` |
-| `P1-T3` | Viết script cài đặt cho Windows PowerShell | `TODO` |
+| `P1-T3` | Viết script cài đặt cho Windows PowerShell | `DONE` |
 | `P1-T4` | Kiểm thử idempotency và bảo toàn file hiện có | `TODO` |
 
 ### Phase 2 - Validation
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P1-T2`
-- Tên: Viết script cài đặt cho Linux/macOS
+- ID: `P1-T3`
+- Tên: Viết script cài đặt cho Windows PowerShell
 - Trạng thái: `DONE`
-- Mục tiêu: triển khai script Bash cài đặt AI Project OS theo thiết kế đã chốt.
+- Mục tiêu: triển khai script PowerShell cài đặt AI Project OS với hành vi tương đương script Linux/macOS.
 
 ## Task tiếp theo dự kiến
 
-- `P1-T3`: Viết script cài đặt cho Windows PowerShell.
+- `P1-T4`: Kiểm thử idempotency và bảo toàn file hiện có.
 
 ## Phụ thuộc
 
@@ -99,3 +99,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Hoàn thành `P1-T1`; task tiếp theo dự kiến là `P1-T2`.
 - 2026-07-23: Bắt đầu `P1-T2` để viết script cài đặt cho Linux/macOS.
 - 2026-07-23: Hoàn thành `P1-T2`; task tiếp theo dự kiến là `P1-T3`.
+- 2026-07-23: Bắt đầu `P1-T3` để viết script cài đặt cho Windows PowerShell.
+- 2026-07-23: Hoàn thành `P1-T3`; task tiếp theo dự kiến là `P1-T4`.

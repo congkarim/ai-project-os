@@ -2,9 +2,9 @@
 
 AI Project OS là bộ khung tài liệu và quy tắc để quản lý dự án khi làm việc với Codex hoặc coding agent khác. Mục tiêu là giúp agent luôn biết bối cảnh, roadmap, task hiện tại, checklist, kế hoạch và các quyết định dài hạn ngay trong repository.
 
-Phiên bản hiện tại: `v0.1.0`.
+Baseline tài liệu hiện tại: `v0.1.0`.
 
-`v0.1.0` là baseline tài liệu thủ công: chỉ cung cấp rule, tài liệu trạng thái và starter template. Chưa có script cài đặt, automation, ứng dụng web, API, package release hoặc Git tag phát hành.
+`v0.1.0` là baseline tài liệu thủ công: cung cấp rule, tài liệu trạng thái và starter template. Các script cài đặt đang được phát triển trong Phase 1, chưa phải package release hoặc Git tag phát hành.
 
 ## Thành phần
 
@@ -16,6 +16,8 @@ Phiên bản hiện tại: `v0.1.0`.
 - `.ai/plan.md`: không gian lập kế hoạch tạm thời của task hiện tại.
 - `.ai/decisions.md`: nhật ký quyết định kiến trúc.
 - `docs/install-design.md`: thiết kế cơ chế cài đặt cho các script Phase 1.
+- `scripts/install.sh`: script cài đặt cho Linux/macOS.
+- `scripts/install.ps1`: script cài đặt cho Windows PowerShell.
 - `global/AGENTS.md`: mẫu rule chung để đặt tại `~/.codex/AGENTS.md`.
 - `starter/`: bộ khung sạch để sao chép vào repository mới.
 
@@ -28,7 +30,7 @@ Phiên bản hiện tại: `v0.1.0`.
 - Điền lại placeholder trong starter bằng thông tin thật của dự án.
 - Quản lý task bằng Git và các file `.ai/`.
 
-Các phần chưa thuộc `v0.1.0`: script cài đặt, kiểm tra schema tự động, package release, Git tag phát hành và workflow CI/CD.
+Các phần chưa thuộc `v0.1.0`: kiểm tra schema tự động, package release, Git tag phát hành và workflow CI/CD. Script cài đặt thuộc Phase 1 và phải được kiểm thử thêm trước release chính thức.
 
 ## Nguồn sự thật
 
@@ -54,7 +56,7 @@ File global là lớp rule tối thiểu. Khi repository có `AGENTS.md`, rule p
 
 ## Áp dụng cho dự án mới
 
-Trong `v0.1.0`, có thể sao chép thủ công hoặc dùng script Linux/macOS.
+Có thể sao chép thủ công hoặc dùng script cài đặt phù hợp với hệ điều hành.
 
 Trong repository mới:
 
@@ -71,6 +73,22 @@ scripts/install.sh --target /duong/dan/toi/repository-moi --yes
 ```
 
 Script mặc định không ghi đè file đã tồn tại và khác nội dung. Khi cần, dùng `--backup` để sao lưu trước khi ghi hoặc `--overwrite` để ghi đè có chủ đích. Thiết kế chi tiết nằm trong `docs/install-design.md`.
+
+Trên Windows PowerShell hoặc PowerShell 7:
+
+```powershell
+pwsh -File scripts/install.ps1 -Target C:\duong\dan\repository-moi -DryRun
+pwsh -File scripts/install.ps1 -Target C:\duong\dan\repository-moi -Yes
+```
+
+Nếu đang ở Windows PowerShell và không dùng `pwsh`, có thể chạy trực tiếp:
+
+```powershell
+.\scripts\install.ps1 -Target C:\duong\dan\repository-moi -DryRun
+.\scripts\install.ps1 -Target C:\duong\dan\repository-moi -Yes
+```
+
+Script PowerShell mặc định không ghi đè file đã tồn tại và khác nội dung. Khi cần, dùng `-Backup` để sao lưu trước khi ghi hoặc `-Overwrite` để ghi đè có chủ đích. Dùng `-Global` để cài `global/AGENTS.md` vào `~/.codex/AGENTS.md`.
 
 Sau khi sao chép:
 
@@ -121,7 +139,7 @@ Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phư
 
 ## Giới hạn của phiên bản đầu
 
-- Chưa có script cài đặt.
+- Script cài đặt mới ở Phase 1, cần kiểm thử thêm trên môi trường thực trước release.
 - Chưa có kiểm tra tự động cho schema Markdown.
 - Chưa có cơ chế đồng bộ trạng thái tự động.
 - Chưa có package release.
