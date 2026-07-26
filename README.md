@@ -4,7 +4,7 @@ AI Project OS là bộ khung tài liệu và quy tắc để quản lý dự án
 
 Baseline tài liệu hiện tại: `v1.0.0`.
 
-`v1.0.0` là bản phát hành chính thức đầu tiên: rule, tài liệu trạng thái, starter template, thiết kế cài đặt và script Linux/macOS cùng Windows PowerShell. Nội dung đã được đóng gói trong repository; Git tag và GitHub Release thuộc task `P3-T3`.
+`v1.0.0` là bản phát hành chính thức đầu tiên: rule, tài liệu trạng thái, starter template, thiết kế cài đặt và script Linux/macOS cùng Windows PowerShell. Đã có Git tag `v1.0.0` và GitHub Release: https://github.com/congkarim/ai-project-os/releases/tag/v1.0.0
 
 ## Thành phần
 
@@ -39,7 +39,7 @@ Baseline tài liệu hiện tại: `v1.0.0`.
 - Cài đặt an toàn vào repository đang phát triển đã có `AGENTS.md` và `.ai/` (mặc định không ghi đè).
 - Tiếp quản phiên coding agent mới chỉ từ tài liệu trong repository.
 
-Các phần chưa thuộc bước phát hành còn lại: Git tag, GitHub Release, kiểm tra schema tự động và workflow CI/CD. Chi tiết đóng gói nằm ở `docs/release-v1.0.0.md` và `CHANGELOG.md`.
+Các phần ngoài `v1.0.0`: kiểm tra schema tự động và workflow CI/CD. Chi tiết phát hành nằm ở `docs/release-v1.0.0.md`, `CHANGELOG.md` và https://github.com/congkarim/ai-project-os/releases/tag/v1.0.0
 
 ## Nguồn sự thật
 
@@ -151,7 +151,6 @@ Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phư
 
 - Chưa có kiểm tra tự động cho schema Markdown.
 - Chưa có cơ chế đồng bộ trạng thái tự động.
-- Nội dung `v1.0.0` đã đóng gói; Git tag và GitHub Release thuộc `P3-T3`.
 - Chưa có workflow CI/CD.
 - Script PowerShell cần môi trường có `pwsh` hoặc Windows PowerShell.
 - Chưa áp đặt công nghệ cho dự án sử dụng template.
@@ -161,4 +160,4 @@ Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phư
 - Phase 0 - Foundation: khởi tạo bộ khung, rà soát schema, chốt v0.1 — `DONE`.
 - Phase 1 - Automation: thiết kế và viết script cài đặt Linux/macOS và Windows PowerShell — `DONE`.
 - Phase 2 - Validation: thử nghiệm repository mẫu, dự án đang phát triển và tiếp quản phiên mới — `DONE`.
-- Phase 3 - Release: hoàn thiện hướng dẫn và đóng gói `v1.0.0` — đang thực hiện; còn gắn Git tag và phát hành.
+- Phase 3 - Release: hoàn thiện hướng dẫn, đóng gói, gắn Git tag và phát hành `v1.0.0` — `DONE`.

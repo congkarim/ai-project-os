@@ -2,7 +2,9 @@
 
 Ngày đóng gói nội dung: 2026-07-26.
 
-Đây là bản phát hành chính thức đầu tiên của AI Project OS sau khi hoàn thành Phase 0–2 và hoàn thiện hướng dẫn ở `P3-T1`. Task `P3-T2` chốt nội dung trong repository; gắn Git tag và GitHub Release thuộc `P3-T3`.
+Ngày phát hành: 2026-07-26.
+
+Đây là bản phát hành chính thức đầu tiên của AI Project OS sau khi hoàn thành Phase 0–3. Git tag `v1.0.0` trỏ tới commit đóng gói `973aef7e91ba4aa48c2c22ebde42ffecdcbfa52b`. GitHub Release: https://github.com/congkarim/ai-project-os/releases/tag/v1.0.0
 
 ## Phạm vi bản phát hành
 
@@ -10,7 +12,7 @@ Ngày đóng gói nội dung: 2026-07-26.
 
 ## Cách dùng
 
-1. Sao chép repository hoặc lấy đúng commit/tag `v1.0.0` sau khi `P3-T3` gắn tag.
+1. Sao chép repository hoặc lấy đúng commit/tag `v1.0.0`.
 2. Cài vào dự án mới bằng script hoặc sao chép thủ công từ `starter/`.
 3. Tùy chọn cài `global/AGENTS.md` vào `~/.codex/AGENTS.md`.
 4. Điền `.ai/context.md` và `roadmap.md` theo dự án thật.
@@ -50,7 +52,6 @@ Xem chi tiết trong `README.md`.
 - Đồng bộ trạng thái tự động giữa các file `.ai/`.
 - Workflow CI/CD.
 - Package registry (npm, pip, v.v.).
-- Git tag và GitHub Release cho đến khi `P3-T3` hoàn thành.
 
 ## Nâng cấp từ v0.1.0
 

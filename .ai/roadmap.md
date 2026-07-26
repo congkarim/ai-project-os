@@ -16,9 +16,9 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 3 - Release.
-- Task hiện tại: `P3-T2` - Đóng gói phiên bản `v1.0.0`.
+- Task hiện tại: `P3-T3` - Gắn Git tag và phát hành.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: nội dung `v1.0.0` đã đóng gói; tiếp theo là gắn Git tag và phát hành.
+- Tiến độ: Phase 3 hoàn thành; `v1.0.0` đã gắn tag và phát hành.
 
 ## Bảng các phase
 
@@ -27,7 +27,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DONE` |
 | Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `DONE` |
 | Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `DONE` |
-| Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `DOING` |
+| Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `DONE` |
 
 ## Các task trong từng phase
 
@@ -62,18 +62,18 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | --- | --- | --- |
 | `P3-T1` | Hoàn thiện tài liệu hướng dẫn | `DONE` |
 | `P3-T2` | Đóng gói phiên bản `v1.0.0` | `DONE` |
-| `P3-T3` | Gắn Git tag và phát hành | `TODO` |
+| `P3-T3` | Gắn Git tag và phát hành | `DONE` |
 
 ## Task hiện tại
 
-- ID: `P3-T2`
-- Tên: Đóng gói phiên bản `v1.0.0`
+- ID: `P3-T3`
+- Tên: Gắn Git tag và phát hành
 - Trạng thái: `DONE`
-- Mục tiêu: chốt nội dung phát hành `v1.0.0` trong repository trước khi gắn Git tag.
+- Mục tiêu: gắn Git tag `v1.0.0` và tạo GitHub Release cho bản đã đóng gói.
 
 ## Task tiếp theo dự kiến
 
-- `P3-T3`: Gắn Git tag và phát hành.
+- Không còn task trong roadmap hiện tại; có thể mở phase/task mới khi có nhu cầu.
 
 ## Phụ thuộc
 
@@ -112,3 +112,4 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-26: Hoàn thành `P3-T1`; task tiếp theo dự kiến là `P3-T2`.
 - 2026-07-26: Bắt đầu `P3-T2` để đóng gói phiên bản `v1.0.0`.
 - 2026-07-26: Hoàn thành `P3-T2`; task tiếp theo dự kiến là `P3-T3`.
+- 2026-07-26: Bắt đầu và hoàn thành `P3-T3`; gắn tag `v1.0.0` và tạo GitHub Release; Phase 3 hoàn thành.

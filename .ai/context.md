@@ -8,7 +8,7 @@ AI Project OS.
 
 Xây dựng một bộ khung quản lý dự án có thể tái sử dụng trong mọi repository làm việc với Codex hoặc coding agent khác. Bộ khung giúp agent bắt đầu phiên làm việc từ tài liệu trong repository, theo dõi task hiện tại, kiểm tra Definition of Done và ghi lại quyết định dài hạn.
 
-Baseline hiện tại là `v1.0.0`: bộ khung tài liệu, starter template và script cài đặt đã đóng gói trong repository. Git tag và GitHub Release thuộc task `P3-T3`.
+Baseline hiện tại là `v1.0.0`: bộ khung tài liệu, starter template và script cài đặt đã phát hành. Git tag `v1.0.0` và GitHub Release: https://github.com/congkarim/ai-project-os/releases/tag/v1.0.0
 
 ## Vấn đề cần giải quyết
 
@@ -136,7 +136,7 @@ Baseline `v1.0.0` được phân phối bằng cách sao chép thủ công hoặ
 - `starter/AGENTS.md` và `starter/.ai/` vào repository mới.
 - `scripts/install.sh` cho Linux/macOS; `scripts/install.ps1` cho Windows PowerShell.
 
-Nội dung `v1.0.0` được chốt trong `VERSION`, `CHANGELOG.md` và `docs/release-v1.0.0.md`. Git tag và GitHub Release thuộc `P3-T3`.
+Nội dung `v1.0.0` được chốt trong `VERSION`, `CHANGELOG.md` và `docs/release-v1.0.0.md`. Đã gắn Git tag `v1.0.0` và tạo GitHub Release tại https://github.com/congkarim/ai-project-os/releases/tag/v1.0.0
 
 Thiết kế cơ chế cài đặt nằm ở `docs/install-design.md`. Script Linux/macOS nằm ở `scripts/install.sh`; script Windows PowerShell nằm ở `scripts/install.ps1`. Cả hai phải bám theo thiết kế này, đặc biệt là mặc định không ghi đè, có dry-run và xử lý conflict rõ ràng.
 
