@@ -1,6 +1,6 @@
 # Thiết kế cơ chế cài đặt AI Project OS
 
-Tài liệu này là đầu ra của task `P1-T1`. Đây là thiết kế cho các script ở `P1-T2` và `P1-T3`, chưa phải script cài đặt.
+Tài liệu này là đầu ra của task `P1-T1`. Đây là thiết kế mà các script `scripts/install.sh` (`P1-T2`) và `scripts/install.ps1` (`P1-T3`) phải bám theo. Script tương ứng đã được triển khai và kiểm thử qua Phase 1–2; tài liệu này vẫn là nguồn thiết kế, không thay thế mã nguồn script.
 
 ## Mục tiêu
 

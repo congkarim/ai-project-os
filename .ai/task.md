@@ -2,15 +2,15 @@
 
 ## ID
 
-`P2-T3`
+`P3-T1`
 
 ## Tên task
 
-Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
+Hoàn thiện tài liệu hướng dẫn.
 
 ## Phase
 
-Phase 2 - Validation.
+Phase 3 - Release.
 
 ## Trạng thái
 
@@ -18,76 +18,71 @@ Phase 2 - Validation.
 
 ## Mục tiêu
 
-Đánh giá xem một phiên coding agent mới, không dựa vào lịch sử chat, có thể đọc các file quản lý trong repository và nắm đúng phase, task đã xong, task tiếp theo, tiến độ và ràng buộc để tiếp tục làm việc.
+Cập nhật tài liệu hướng dẫn người dùng và bối cảnh dự án cho khớp trạng thái thực tế sau khi Phase 1 và Phase 2 hoàn thành, trước khi đóng gói `v1.0.0`.
 
 ## Bối cảnh
 
-`P2-T1` và `P2-T2` đã xác nhận script cài đặt hoạt động trên repository mẫu và repository đang phát triển. `P2-T3` kiểm tra giá trị cốt lõi của AI Project OS: repository là nguồn sự thật đủ để tiếp quản sau phiên mới.
+`P2-T3` xác nhận tiếp quản phiên mới đạt và chỉ ra `README.md` vẫn mô tả script cài đặt như đang phát triển ở Phase 1. `P3-T1` sửa khoảng trống tài liệu này mà không tạo package hay Git tag.
 
 ## Phạm vi
 
-- Dùng repository AI Project OS hiện tại sau commit `P2-T2`.
-- Thực hiện trình tự khởi động trong `AGENTS.md` như một phiên mới.
-- Đối chiếu trạng thái giữa `roadmap.md`, `task.md`, `task-checklist.md` và `plan.md`.
-- Đánh giá các tiêu chí tiếp quản: xác định phase, task đã xong, việc tiếp theo, Git ngoài phạm vi, ràng buộc ngoài phạm vi.
-- Ghi kết quả đánh giá và phát hiện vào tài liệu trạng thái.
-- Commit task `P2-T3`.
+- Cập nhật `README.md` cho trạng thái sau Phase 1/2.
+- Cập nhật `.ai/context.md` ở các mục phân phối và trạng thái baseline còn lệch.
+- Cập nhật `docs/install-design.md` để ghi rõ thiết kế đã có script tương ứng.
+- Đồng bộ tài liệu trạng thái `.ai/` cho `P3-T1`.
+- Commit task `P3-T1`.
 
 ## Ngoài phạm vi
 
-- Không sửa script cài đặt trừ khi phát hiện lỗi blocker.
-- Không bắt đầu Phase 3.
-- Không tạo package release hoặc Git tag.
-- Không yêu cầu môi trường PowerShell riêng cho đánh giá này.
+- Không đóng gói `v1.0.0` (`P3-T2`).
+- Không gắn Git tag hoặc phát hành (`P3-T3`).
+- Không sửa logic script cài đặt trừ lỗi tài liệu blocker.
+- Không thêm CI/CD hoặc kiểm tra schema tự động.
 
 ## Đầu vào
 
-- `AGENTS.md`.
-- `.ai/context.md`, `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`, `.ai/plan.md`, `.ai/decisions.md`.
-- Commit `P2-T2`.
-- Trình tự khởi động phiên.
+- Kết quả `P2-T3`.
+- `README.md`, `.ai/context.md`, `docs/install-design.md`.
+- Trạng thái Phase 0–2 đã `DONE`.
 
 ## Đầu ra
 
-- Báo cáo đánh giá khả năng tiếp quản.
-- Roadmap, task, checklist và plan thống nhất cho `P2-T3`.
-- Commit Git cho task `P2-T3`.
-- Task tiếp theo dự kiến thuộc Phase 3.
+- Tài liệu hướng dẫn phản ánh đúng: script đã có, đã kiểm thử Phase 2, chưa có package/tag `v1.0.0`.
+- Roadmap, task, checklist và plan thống nhất cho `P3-T1`.
+- Commit Git cho task `P3-T1`.
 
 ## Cách thực hiện đã chốt
 
-Dùng chính phiên hiện tại làm bằng chứng tiếp quản, bổ sung checklist tiêu chí. Phiên bắt đầu bằng yêu cầu tiếp tục, không có ngữ cảnh task dang dở trong chat; agent đọc repository và đối chiếu trạng thái sau commit `P2-T2`.
+Đồng bộ `README.md`, `.ai/context.md` và `docs/install-design.md`; giữ baseline `v0.1.0` đến `P3-T2`.
 
 ## Tiêu chí chấp nhận
 
-- Phiên đánh giá đọc được đủ file bắt buộc theo `AGENTS.md`.
-- Xác định đúng Phase 2 và task tiếp theo là `P2-T3` từ tài liệu repository, không cần lịch sử chat.
-- Xác định đúng `P2-T1` và `P2-T2` đã `DONE`.
-- Đối chiếu `roadmap.md`, `task.md`, `task-checklist.md` và `plan.md` không phát hiện lệch trạng thái sau `P2-T2`.
-- `git status --short` sạch trước khi bắt đầu thay đổi của `P2-T3`.
-- Kết quả đánh giá được ghi lại rõ ràng: đạt / chưa đạt theo từng tiêu chí.
-- Roadmap, task và checklist thống nhất `P2-T3`.
-- Task tiếp theo dự kiến là `P3-T1`.
+- `README.md` không còn nói script đang phát triển ở Phase 1.
+- `README.md` nêu rõ script đã có, đã được kiểm thử ở Phase 2, và package/tag vẫn thuộc Phase 3 còn lại.
+- `.ai/context.md` phản ánh script đã triển khai; package/tag vẫn chưa phát hành.
+- `docs/install-design.md` ghi rõ đây là thiết kế và script tương ứng đã tồn tại.
+- Roadmap, task và checklist thống nhất `P3-T1`.
+- Task tiếp theo dự kiến là `P3-T2`.
+- Không có file rỗng trong phạm vi sửa.
 - Markdown cơ bản không lỗi.
 - `git diff --check` đạt.
-- Commit được tạo với thông điệp `[P2-T3] Đánh giá khả năng tiếp quản phiên mới`.
+- Commit được tạo với thông điệp `[P3-T1] Hoàn thiện tài liệu hướng dẫn`.
 
 ## Kiểm thử bắt buộc
 
-- Chạy trình tự khởi động như phiên mới.
 - Chạy `git status --short` trước khi sửa và trước khi stage.
-- Đối chiếu thống nhất trạng thái sau `P2-T2`.
-- Kiểm tra các tiêu chí tiếp quản đã liệt kê.
-- Kiểm tra không có file rỗng trong phạm vi tài liệu quản lý.
+- Rà các câu mô tả lệch trạng thái trong `README.md`, `.ai/context.md`, `docs/install-design.md`.
+- Kiểm tra không còn cụm "đang được phát triển trong Phase 1" trong README.
+- Kiểm tra không có file rỗng trong phạm vi sửa.
 - Kiểm tra Markdown cơ bản.
-- Kiểm tra thống nhất `P2-T3` giữa roadmap, task và checklist.
+- Kiểm tra thống nhất `P3-T1` giữa roadmap, task và checklist.
 - Chạy `git diff --check`.
 - Xem lại toàn bộ `git diff`.
 
 ## Rủi ro
 
-- Tài liệu có thể đủ để tiếp quản nhưng vẫn thiếu chi tiết vận hành cho người mới nếu README chưa cập nhật kết quả Phase 2.
-- Đánh giá dựa trên một phiên mới trong cùng repository; không thay thế thử nghiệm trên nhiều agent khác nhau.
+- Dễ lẫn phạm vi với `P3-T2` nếu cập nhật baseline thành `v1.0.0` quá sớm.
+- Không tuyên bố đã phát hành khi chưa có package/tag.
 
 ## Blocker
 
@@ -95,49 +90,30 @@ Không có blocker.
 
 ## Kết quả task trước
 
-`P2-T2` đã thử nghiệm trên dự án đang phát triển và commit `c4be217777b4243a0dee1b84ed66bcade87fbd7f`.
+`P2-T3` đã đánh giá tiếp quản phiên mới và commit `58bb50b81c855133a20b6de87bf8150f35c4dd16`.
 
 ## Task tiếp theo dự kiến
 
-`P3-T1` - Hoàn thiện tài liệu hướng dẫn.
+`P3-T2` - Đóng gói phiên bản `v1.0.0`.
 
 ## Kết quả thực hiện
 
-Đã đánh giá khả năng tiếp quản bằng phiên mới trên repository hiện tại sau commit `P2-T2`.
+Đã cập nhật tài liệu hướng dẫn cho khớp trạng thái sau Phase 1/2.
 
-Bằng chứng khởi động:
+Thay đổi chính:
 
-- Phiên bắt đầu với yêu cầu tiếp tục, không mang ngữ cảnh task dang dở từ chat.
-- Agent đọc `AGENTS.md`, `.ai/context.md`, `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`, `.ai/plan.md`, `.ai/decisions.md` và chạy `git status --short`.
-- Trước khi sửa cho `P2-T3`, working tree sạch.
+- `README.md`: nêu Phase 0–2 đã xong, script dùng được và đã kiểm thử Phase 2; giữ baseline `v0.1.0`; package/tag `v1.0.0` thuộc Phase 3 còn lại.
+- `.ai/context.md`: cập nhật baseline và mục phân phối.
+- `docs/install-design.md`: ghi rõ thiết kế đã có script tương ứng đã triển khai và kiểm thử.
 
-Kết quả theo tiêu chí:
+Kiểm thử:
 
-| # | Tiêu chí | Kết quả |
-| --- | --- | --- |
-| 1 | Đọc đủ file bắt buộc theo `AGENTS.md` | Đạt |
-| 2 | Xác định đúng phase hiện tại: Phase 2 - Validation | Đạt |
-| 3 | Xác định đúng `P2-T1` và `P2-T2` đã `DONE` | Đạt |
-| 4 | Xác định đúng task tiếp theo cần bắt đầu: `P2-T3` | Đạt |
-| 5 | roadmap / task / checklist / plan thống nhất sau `P2-T2` | Đạt |
-| 6 | `git status --short` sạch, không có thay đổi ngoài phạm vi | Đạt |
-| 7 | Nắm được ngoài phạm vi: không release, không Git tag, không sửa script trừ blocker | Đạt |
-| 8 | Đủ thông tin để lập kế hoạch `P2-T3` ngay | Đạt |
-
-Tổng kết đánh giá tiếp quản: 8 pass, 0 fail.
-
-Phát hiện bổ sung:
-
-- Sau task `DONE`, `task.md` vẫn mô tả task vừa xong và chỉ ra task tiếp theo; điều này đủ để tiếp quản, nhưng agent phải đọc cả `roadmap.md` và mục "Task tiếp theo dự kiến".
-- `README.md` vẫn nói script cài đặt đang phát triển ở Phase 1; đây là khoảng trống tài liệu hướng dẫn cho `P3-T1`, không chặn tiếp quản trạng thái task.
-
-Kiểm tra repository chính:
-
-- Kiểm tra không có file rỗng trong tài liệu quản lý: đạt.
-- Kiểm tra Markdown cơ bản (có H1): đạt.
-- Kiểm tra thống nhất `P2-T3` trong `.ai/roadmap.md`, `.ai/task.md`, `.ai/task-checklist.md`: đạt.
+- Không còn cụm "đang được phát triển trong Phase 1" trong README: đạt.
+- File trong phạm vi sửa không rỗng, có H1: đạt.
+- Thống nhất `P3-T1` giữa roadmap, task và checklist: đạt.
 - `git diff --check`: đạt.
 - Đã xem lại toàn bộ diff trước khi commit.
+- Giữ baseline `v0.1.0`; không tạo package/tag.
 
 ## Ngày bắt đầu
 

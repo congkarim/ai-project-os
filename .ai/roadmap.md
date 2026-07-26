@@ -15,10 +15,10 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Trạng thái hiện tại
 
-- Phase hiện tại: Phase 2 - Validation.
-- Task hiện tại: `P2-T3` - Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
+- Phase hiện tại: Phase 3 - Release.
+- Task hiện tại: `P3-T1` - Hoàn thiện tài liệu hướng dẫn.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: Phase 2 hoàn thành; đã xác nhận phiên mới tiếp quản được từ tài liệu repository.
+- Tiến độ: đã hoàn thiện tài liệu hướng dẫn; tiếp theo là đóng gói `v1.0.0`.
 
 ## Bảng các phase
 
@@ -27,7 +27,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DONE` |
 | Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `DONE` |
 | Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `DONE` |
-| Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `TODO` |
+| Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `DOING` |
 
 ## Các task trong từng phase
 
@@ -60,20 +60,20 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 | ID | Task | Trạng thái |
 | --- | --- | --- |
-| `P3-T1` | Hoàn thiện tài liệu hướng dẫn | `TODO` |
+| `P3-T1` | Hoàn thiện tài liệu hướng dẫn | `DONE` |
 | `P3-T2` | Đóng gói phiên bản `v1.0.0` | `TODO` |
 | `P3-T3` | Gắn Git tag và phát hành | `TODO` |
 
 ## Task hiện tại
 
-- ID: `P2-T3`
-- Tên: Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới
+- ID: `P3-T1`
+- Tên: Hoàn thiện tài liệu hướng dẫn
 - Trạng thái: `DONE`
-- Mục tiêu: xác nhận phiên coding agent mới có thể tiếp quản đúng trạng thái dự án chỉ từ tài liệu trong repository.
+- Mục tiêu: cập nhật tài liệu hướng dẫn cho khớp trạng thái sau Phase 1/2 trước khi đóng gói `v1.0.0`.
 
 ## Task tiếp theo dự kiến
 
-- `P3-T1`: Hoàn thiện tài liệu hướng dẫn.
+- `P3-T2`: Đóng gói phiên bản `v1.0.0`.
 
 ## Phụ thuộc
 
@@ -108,3 +108,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Bắt đầu và hoàn thành `P2-T2` bằng thử nghiệm an toàn trên repository đang phát triển hiện tại.
 - 2026-07-26: Bắt đầu `P2-T3` để đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
 - 2026-07-26: Hoàn thành `P2-T3`; Phase 2 hoàn thành, task tiếp theo dự kiến là `P3-T1`.
+- 2026-07-26: Bắt đầu `P3-T1` để hoàn thiện tài liệu hướng dẫn.
+- 2026-07-26: Hoàn thành `P3-T1`; task tiếp theo dự kiến là `P3-T2`.

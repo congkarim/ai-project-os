@@ -4,7 +4,7 @@ AI Project OS là bộ khung tài liệu và quy tắc để quản lý dự án
 
 Baseline tài liệu hiện tại: `v0.1.0`.
 
-`v0.1.0` là baseline tài liệu thủ công: cung cấp rule, tài liệu trạng thái và starter template. Các script cài đặt đang được phát triển trong Phase 1, chưa phải package release hoặc Git tag phát hành.
+`v0.1.0` là baseline tài liệu có thể dùng ngay: rule, tài liệu trạng thái, starter template và script cài đặt. Phase 0–2 đã hoàn thành. Package release và Git tag `v1.0.0` thuộc các task còn lại của Phase 3.
 
 ## Thành phần
 
@@ -15,22 +15,28 @@ Baseline tài liệu hiện tại: `v0.1.0`.
 - `.ai/task-checklist.md`: checklist thực thi và đóng task.
 - `.ai/plan.md`: không gian lập kế hoạch tạm thời của task hiện tại.
 - `.ai/decisions.md`: nhật ký quyết định kiến trúc.
-- `docs/install-design.md`: thiết kế cơ chế cài đặt cho các script Phase 1.
+- `docs/install-design.md`: thiết kế cơ chế cài đặt mà các script phải bám theo.
 - `scripts/install.sh`: script cài đặt cho Linux/macOS.
 - `scripts/install.ps1`: script cài đặt cho Windows PowerShell.
 - `global/AGENTS.md`: mẫu rule chung để đặt tại `~/.codex/AGENTS.md`.
 - `starter/`: bộ khung sạch để sao chép vào repository mới.
 
-## Phạm vi v0.1.0
+## Phạm vi hiện tại
 
-`v0.1.0` dùng được bằng cách sao chép thủ công:
+Có thể dùng ngay bằng sao chép thủ công hoặc script cài đặt:
 
 - Sao chép `global/AGENTS.md` vào cấu hình global của Codex nếu cần rule chung.
-- Sao chép `starter/AGENTS.md` và `starter/.ai/` vào repository mới.
+- Sao chép `starter/AGENTS.md` và `starter/.ai/` vào repository mới, hoặc chạy `scripts/install.sh` / `scripts/install.ps1`.
 - Điền lại placeholder trong starter bằng thông tin thật của dự án.
 - Quản lý task bằng Git và các file `.ai/`.
 
-Các phần chưa thuộc `v0.1.0`: kiểm tra schema tự động, package release, Git tag phát hành và workflow CI/CD. Script cài đặt thuộc Phase 1 và phải được kiểm thử thêm trước release chính thức.
+Đã kiểm thử ở Phase 2:
+
+- Cài đặt vào repository mẫu trống.
+- Cài đặt an toàn vào repository đang phát triển đã có `AGENTS.md` và `.ai/` (mặc định không ghi đè).
+- Tiếp quản phiên coding agent mới chỉ từ tài liệu trong repository.
+
+Các phần chưa thuộc bản phát hành chính thức: kiểm tra schema tự động, package release, Git tag phát hành và workflow CI/CD.
 
 ## Nguồn sự thật
 
@@ -52,7 +58,7 @@ mkdir -p ~/.codex
 cp global/AGENTS.md ~/.codex/AGENTS.md
 ```
 
-File global là lớp rule tối thiểu. Khi repository có `AGENTS.md`, rule project-level là nguồn chi tiết hơn.
+Hoặc dùng script với tùy chọn global. File global là lớp rule tối thiểu. Khi repository có `AGENTS.md`, rule project-level là nguồn chi tiết hơn.
 
 ## Áp dụng cho dự án mới
 
@@ -102,16 +108,17 @@ Sau khi sao chép:
 ## Áp dụng cho repository đang có
 
 1. Chạy `git status --short` để nắm thay đổi hiện có.
-2. Không ghi đè `AGENTS.md` hoặc `.ai/` nếu chúng đã tồn tại.
-3. Nếu chưa có, sao chép từng file từ `starter/`.
-4. Nếu đã có tài liệu quản lý riêng, hợp nhất thủ công thay vì thay thế.
-5. Điền `context.md` dựa trên source code, cấu hình và tài liệu hiện có.
-6. Tạo roadmap phản ánh trạng thái thật của repository.
-7. Chọn một task nhỏ làm task hiện tại để kiểm tra workflow.
+2. Chạy dry-run trước: `scripts/install.sh --target <repo> --dry-run`.
+3. Không ghi đè `AGENTS.md` hoặc `.ai/` nếu chúng đã tồn tại và khác starter; script mặc định sẽ báo conflict.
+4. Nếu chưa có, sao chép từng file từ `starter/` hoặc chạy install mặc định.
+5. Nếu đã có tài liệu quản lý riêng, hợp nhất thủ công hoặc dùng `--backup` / `--overwrite` có chủ đích.
+6. Điền `context.md` dựa trên source code, cấu hình và tài liệu hiện có.
+7. Tạo roadmap phản ánh trạng thái thật của repository.
+8. Chọn một task nhỏ làm task hiện tại để kiểm tra workflow.
 
 ## Bắt đầu một phiên làm việc
 
-Agent đọc theo trình tự trong `AGENTS.md`, chạy `git status --short`, đối chiếu roadmap, task và checklist, rồi báo cáo ngắn gọn trạng thái thực tế.
+Agent đọc theo trình tự trong `AGENTS.md`, chạy `git status --short`, đối chiếu roadmap, task và checklist, rồi báo cáo ngắn gọn trạng thái thực tế. Không dựa vào lịch sử chat làm nguồn sự thật duy nhất.
 
 ## Hoàn thành một task
 
@@ -137,18 +144,19 @@ Không dùng git add . trong mọi trường hợp. Chỉ stage file thuộc ph�
 
 Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phương án, phát hiện và kết quả kiểm thử. Khi task hoàn thành, rút gọn theo quy tắc trong `AGENTS.md` và chỉ giữ thông tin cần cho task sau; không giữ suy luận dài dòng hoặc nhật ký hội thoại.
 
-## Giới hạn của phiên bản đầu
+## Giới hạn hiện tại
 
-- Script cài đặt mới ở Phase 1, cần kiểm thử thêm trên môi trường thực trước release.
 - Chưa có kiểm tra tự động cho schema Markdown.
 - Chưa có cơ chế đồng bộ trạng thái tự động.
-- Chưa có package release.
+- Chưa có package release `v1.0.0`.
 - Chưa có Git tag phát hành.
+- Chưa có workflow CI/CD.
+- Script PowerShell cần môi trường có `pwsh` hoặc Windows PowerShell.
 - Chưa áp đặt công nghệ cho dự án sử dụng template.
 
 ## Roadmap của AI Project OS
 
-- Phase 0 - Foundation: khởi tạo bộ khung, rà soát schema, chốt v0.1.
-- Phase 1 - Automation: thiết kế cơ chế cài đặt trong `docs/install-design.md`, sau đó viết script cho nhiều hệ điều hành.
-- Phase 2 - Validation: thử nghiệm trên repository mẫu và dự án thật.
-- Phase 3 - Release: hoàn thiện hướng dẫn, đóng gói `v1.0.0`, gắn Git tag và phát hành.
+- Phase 0 - Foundation: khởi tạo bộ khung, rà soát schema, chốt v0.1 — `DONE`.
+- Phase 1 - Automation: thiết kế và viết script cài đặt Linux/macOS và Windows PowerShell — `DONE`.
+- Phase 2 - Validation: thử nghiệm repository mẫu, dự án đang phát triển và tiếp quản phiên mới — `DONE`.
+- Phase 3 - Release: hoàn thiện hướng dẫn, đóng gói `v1.0.0`, gắn Git tag và phát hành — đang thực hiện.
