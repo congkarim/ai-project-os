@@ -1,24 +1,24 @@
-# Plan task P3-T1
+# Plan task P3-T2
 
 File này đã được rút gọn sau khi hoàn thành task theo quy tắc reset.
 
 ## Task vừa hoàn thành
 
-- ID: `P3-T1`
-- Tên: Hoàn thiện tài liệu hướng dẫn.
+- ID: `P3-T2`
+- Tên: Đóng gói phiên bản `v1.0.0`.
 - Ngày hoàn thành: 2026-07-26.
 
 ## Phương án được chọn
 
-Đồng bộ `README.md`, `.ai/context.md` và `docs/install-design.md`; giữ baseline `v0.1.0` đến `P3-T2`.
+Đóng gói source-tree versioned: `VERSION` + `CHANGELOG.md` + `docs/release-v1.0.0.md` + cập nhật baseline; ADR-005.
 
 ## Kết quả
 
-- README phản ánh Phase 0–2 đã xong và script đã kiểm thử.
-- context và install-design không còn mô tả script như chưa có.
-- Không tạo package/tag `v1.0.0`.
+- Baseline chuyển sang `v1.0.0`.
+- Chưa gắn Git tag `v1.0.0`.
+- Không tạo npm/pip hoặc archive.
 
 ## Vấn đề chuyển sang task sau
 
-- `P3-T2`: đóng gói phiên bản `v1.0.0`.
+- `P3-T3`: gắn Git tag `v1.0.0` và phát hành (GitHub Release nếu phù hợp).
 - PowerShell runtime vẫn cần môi trường có `pwsh` hoặc Windows PowerShell.

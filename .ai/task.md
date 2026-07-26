@@ -2,11 +2,11 @@
 
 ## ID
 
-`P3-T1`
+`P3-T2`
 
 ## Tên task
 
-Hoàn thiện tài liệu hướng dẫn.
+Đóng gói phiên bản `v1.0.0`.
 
 ## Phase
 
@@ -18,71 +18,79 @@ Phase 3 - Release.
 
 ## Mục tiêu
 
-Cập nhật tài liệu hướng dẫn người dùng và bối cảnh dự án cho khớp trạng thái thực tế sau khi Phase 1 và Phase 2 hoàn thành, trước khi đóng gói `v1.0.0`.
+Chốt nội dung phát hành `v1.0.0` trong repository: phiên bản, changelog, danh mục thành phần và cập nhật baseline tài liệu, sẵn sàng cho gắn Git tag ở `P3-T3`.
 
 ## Bối cảnh
 
-`P2-T3` xác nhận tiếp quản phiên mới đạt và chỉ ra `README.md` vẫn mô tả script cài đặt như đang phát triển ở Phase 1. `P3-T1` sửa khoảng trống tài liệu này mà không tạo package hay Git tag.
+`P3-T1` đã hoàn thiện hướng dẫn. Baseline vẫn là `v0.1.0`. `P3-T2` chuyển sang đóng gói nội dung `v1.0.0` nhưng chưa gắn tag hay tạo GitHub Release.
 
 ## Phạm vi
 
-- Cập nhật `README.md` cho trạng thái sau Phase 1/2.
-- Cập nhật `.ai/context.md` ở các mục phân phối và trạng thái baseline còn lệch.
-- Cập nhật `docs/install-design.md` để ghi rõ thiết kế đã có script tương ứng.
-- Đồng bộ tài liệu trạng thái `.ai/` cho `P3-T1`.
-- Commit task `P3-T1`.
+- Tạo `VERSION` với giá trị `1.0.0`.
+- Tạo `CHANGELOG.md` ghi nhận `v1.0.0`.
+- Tạo ghi chú phát hành / danh mục thành phần trong `docs/`.
+- Cập nhật baseline `v1.0.0` trong `README.md` và `.ai/context.md`.
+- Ghi quyết định đóng gói vào `.ai/decisions.md` nếu cần.
+- Đồng bộ tài liệu trạng thái `.ai/` cho `P3-T2`.
+- Commit task `P3-T2`.
 
 ## Ngoài phạm vi
 
-- Không đóng gói `v1.0.0` (`P3-T2`).
-- Không gắn Git tag hoặc phát hành (`P3-T3`).
-- Không sửa logic script cài đặt trừ lỗi tài liệu blocker.
-- Không thêm CI/CD hoặc kiểm tra schema tự động.
+- Không gắn Git tag (`P3-T3`).
+- Không tạo GitHub Release hay push tag (`P3-T3`).
+- Không tạo package npm/pip hoặc artifact nén riêng.
+- Không sửa logic script cài đặt trừ khi phát hiện lỗi blocker trong tài liệu phiên bản.
 
 ## Đầu vào
 
-- Kết quả `P2-T3`.
-- `README.md`, `.ai/context.md`, `docs/install-design.md`.
-- Trạng thái Phase 0–2 đã `DONE`.
+- Kết quả `P3-T1`.
+- Thành phần hiện có: `AGENTS.md`, `.ai/`, `starter/`, `global/`, `scripts/`, `docs/`.
+- ADR-003 và ADR-004.
 
 ## Đầu ra
 
-- Tài liệu hướng dẫn phản ánh đúng: script đã có, đã kiểm thử Phase 2, chưa có package/tag `v1.0.0`.
-- Roadmap, task, checklist và plan thống nhất cho `P3-T1`.
-- Commit Git cho task `P3-T1`.
+- Bộ tài liệu đóng gói `v1.0.0` trong repository.
+- Baseline tài liệu chuyển sang `v1.0.0`.
+- Roadmap, task, checklist và plan thống nhất cho `P3-T2`.
+- Commit Git cho task `P3-T2`.
 
 ## Cách thực hiện đã chốt
 
-Đồng bộ `README.md`, `.ai/context.md` và `docs/install-design.md`; giữ baseline `v0.1.0` đến `P3-T2`.
+Đóng gói bằng `VERSION` + `CHANGELOG.md` + `docs/release-v1.0.0.md`, cập nhật baseline tài liệu, ghi ADR-005; không gắn tag.
 
 ## Tiêu chí chấp nhận
 
-- `README.md` không còn nói script đang phát triển ở Phase 1.
-- `README.md` nêu rõ script đã có, đã được kiểm thử ở Phase 2, và package/tag vẫn thuộc Phase 3 còn lại.
-- `.ai/context.md` phản ánh script đã triển khai; package/tag vẫn chưa phát hành.
-- `docs/install-design.md` ghi rõ đây là thiết kế và script tương ứng đã tồn tại.
-- Roadmap, task và checklist thống nhất `P3-T1`.
-- Task tiếp theo dự kiến là `P3-T2`.
+- Có file `VERSION` chứa `1.0.0`.
+- Có `CHANGELOG.md` với mục `v1.0.0`.
+- Có tài liệu danh mục thành phần phát hành trong `docs/`.
+- `README.md` và `.ai/context.md` dùng baseline `v1.0.0`.
+- Không còn tuyên bố baseline hiện tại là `v0.1.0` trong README/context.
+- Ghi rõ tag/GitHub Release vẫn thuộc `P3-T3`.
+- Roadmap, task và checklist thống nhất `P3-T2`.
+- Task tiếp theo dự kiến là `P3-T3`.
 - Không có file rỗng trong phạm vi sửa.
 - Markdown cơ bản không lỗi.
 - `git diff --check` đạt.
-- Commit được tạo với thông điệp `[P3-T1] Hoàn thiện tài liệu hướng dẫn`.
+- Commit được tạo với thông điệp `[P3-T2] Đóng gói phiên bản v1.0.0`.
 
 ## Kiểm thử bắt buộc
 
 - Chạy `git status --short` trước khi sửa và trước khi stage.
-- Rà các câu mô tả lệch trạng thái trong `README.md`, `.ai/context.md`, `docs/install-design.md`.
-- Kiểm tra không còn cụm "đang được phát triển trong Phase 1" trong README.
+- Kiểm tra nội dung `VERSION`.
+- Kiểm tra `CHANGELOG.md` có mục `v1.0.0`.
+- Kiểm tra danh mục thành phần khớp file thực tế trong repo.
+- Kiểm tra README/context dùng `v1.0.0`.
+- Kiểm tra không có Git tag `v1.0.0` được tạo trong task này.
 - Kiểm tra không có file rỗng trong phạm vi sửa.
 - Kiểm tra Markdown cơ bản.
-- Kiểm tra thống nhất `P3-T1` giữa roadmap, task và checklist.
+- Kiểm tra thống nhất `P3-T2` giữa roadmap, task và checklist.
 - Chạy `git diff --check`.
 - Xem lại toàn bộ `git diff`.
 
 ## Rủi ro
 
-- Dễ lẫn phạm vi với `P3-T2` nếu cập nhật baseline thành `v1.0.0` quá sớm.
-- Không tuyên bố đã phát hành khi chưa có package/tag.
+- Dễ lẫn với `P3-T3` nếu gắn tag sớm.
+- Không tạo artifact nén/npm để tránh mở rộng phạm vi ngoài bộ khung tài liệu.
 
 ## Blocker
 
@@ -90,30 +98,35 @@ Không có blocker.
 
 ## Kết quả task trước
 
-`P2-T3` đã đánh giá tiếp quản phiên mới và commit `58bb50b81c855133a20b6de87bf8150f35c4dd16`.
+`P3-T1` đã hoàn thiện tài liệu hướng dẫn và commit `25d066b0c5a28088a3426e81d0fd93ac309f36d3`.
 
 ## Task tiếp theo dự kiến
 
-`P3-T2` - Đóng gói phiên bản `v1.0.0`.
+`P3-T3` - Gắn Git tag và phát hành.
 
 ## Kết quả thực hiện
 
-Đã cập nhật tài liệu hướng dẫn cho khớp trạng thái sau Phase 1/2.
+Đã đóng gói nội dung `v1.0.0` trong repository theo ADR-005.
 
-Thay đổi chính:
+Thành phần đóng gói:
 
-- `README.md`: nêu Phase 0–2 đã xong, script dùng được và đã kiểm thử Phase 2; giữ baseline `v0.1.0`; package/tag `v1.0.0` thuộc Phase 3 còn lại.
-- `.ai/context.md`: cập nhật baseline và mục phân phối.
-- `docs/install-design.md`: ghi rõ thiết kế đã có script tương ứng đã triển khai và kiểm thử.
+- `VERSION` = `1.0.0`
+- `CHANGELOG.md` với mục `[1.0.0] - 2026-07-26`
+- `docs/release-v1.0.0.md` danh mục thành phần và ghi chú phát hành
+- Baseline `v1.0.0` trong `README.md` và `.ai/context.md`
+- ADR-005 ghi quyết định đóng gói source-tree versioned
 
 Kiểm thử:
 
-- Không còn cụm "đang được phát triển trong Phase 1" trong README: đạt.
-- File trong phạm vi sửa không rỗng, có H1: đạt.
-- Thống nhất `P3-T1` giữa roadmap, task và checklist: đạt.
+- `VERSION` đúng `1.0.0`: đạt.
+- `CHANGELOG.md` có mục `1.0.0`: đạt.
+- Danh mục thành phần khớp 22 file kiểm tra: đạt.
+- README/context không còn baseline hiện tại `v0.1.0`: đạt.
+- Chưa tạo Git tag `v1.0.0`: đạt.
+- File trong phạm vi không rỗng: đạt.
+- Thống nhất `P3-T2` giữa roadmap, task và checklist: đạt.
 - `git diff --check`: đạt.
 - Đã xem lại toàn bộ diff trước khi commit.
-- Giữ baseline `v0.1.0`; không tạo package/tag.
 
 ## Ngày bắt đầu
 

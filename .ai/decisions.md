@@ -96,6 +96,8 @@ Phase 0 chỉ nhằm hoàn thiện nền tảng tài liệu. Git tag và phát h
 
 Xem xét lại khi Phase 1 có script cài đặt hoặc khi Phase 3 chuẩn bị đóng gói release chính thức.
 
+Đã xem xét lại ở `P3-T2` / ADR-005: baseline chuyển sang `v1.0.0` bằng đóng gói source-tree versioned.
+
 ## ADR-004 - Mặc định không ghi đè khi cài đặt
 
 - ID: `ADR-004`
@@ -127,3 +129,37 @@ Script cài đặt cần có bước so sánh file, báo conflict, hỗ trợ dr
 ### Điều kiện xem xét lại
 
 Chỉ xem xét lại nếu Phase 2 chứng minh workflow backup mặc định an toàn và dễ hiểu hơn cho người dùng.
+
+## ADR-005 - Đóng gói v1.0.0 bằng source-tree versioned
+
+- ID: `ADR-005`
+- Ngày: 2026-07-26
+- Trạng thái: Chấp nhận
+
+### Bối cảnh
+
+Phase 3 cần đóng gói `v1.0.0`. Repository là bộ khung Markdown và script, không phải thư viện runtime. ADR-003 đã chốt `v0.1.0` là baseline thủ công và cho phép xem xét lại khi Phase 3 chuẩn bị release chính thức.
+
+### Các phương án
+
+- Chỉ đổi số phiên bản trong README/context.
+- Chốt `VERSION` + `CHANGELOG.md` + ghi chú phát hành trong `docs/`, cập nhật baseline tài liệu; gắn tag ở task riêng.
+- Tạo archive `.tar.gz` hoặc đăng ký npm/pip.
+
+### Phương án được chọn
+
+Chốt nội dung `v1.0.0` bằng `VERSION`, `CHANGELOG.md` và `docs/release-v1.0.0.md`, cập nhật baseline tài liệu trong repository. Git tag và GitHub Release để task `P3-T3`.
+
+### Lý do
+
+Đủ để người dùng và maintainer biết chính xác thành phần phát hành mà không mở rộng sang package registry. Tách đóng gói nội dung khỏi gắn tag giúp kiểm soát phạm vi và tránh phát hành sớm.
+
+### Hệ quả
+
+- Baseline tài liệu chuyển sang `v1.0.0` trước khi có tag.
+- Không có artifact npm/pip.
+- `P3-T3` chỉ việc gắn tag và tạo release từ nội dung đã chốt.
+
+### Điều kiện xem xét lại
+
+Xem xét lại nếu người dùng cần artifact nén hoặc đăng ký package registry, hoặc nếu quy trình phát hành yêu cầu tag ngay trong cùng một task với đóng gói nội dung.

@@ -16,9 +16,9 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 3 - Release.
-- Task hiện tại: `P3-T1` - Hoàn thiện tài liệu hướng dẫn.
+- Task hiện tại: `P3-T2` - Đóng gói phiên bản `v1.0.0`.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã hoàn thiện tài liệu hướng dẫn; tiếp theo là đóng gói `v1.0.0`.
+- Tiến độ: nội dung `v1.0.0` đã đóng gói; tiếp theo là gắn Git tag và phát hành.
 
 ## Bảng các phase
 
@@ -61,19 +61,19 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | ID | Task | Trạng thái |
 | --- | --- | --- |
 | `P3-T1` | Hoàn thiện tài liệu hướng dẫn | `DONE` |
-| `P3-T2` | Đóng gói phiên bản `v1.0.0` | `TODO` |
+| `P3-T2` | Đóng gói phiên bản `v1.0.0` | `DONE` |
 | `P3-T3` | Gắn Git tag và phát hành | `TODO` |
 
 ## Task hiện tại
 
-- ID: `P3-T1`
-- Tên: Hoàn thiện tài liệu hướng dẫn
+- ID: `P3-T2`
+- Tên: Đóng gói phiên bản `v1.0.0`
 - Trạng thái: `DONE`
-- Mục tiêu: cập nhật tài liệu hướng dẫn cho khớp trạng thái sau Phase 1/2 trước khi đóng gói `v1.0.0`.
+- Mục tiêu: chốt nội dung phát hành `v1.0.0` trong repository trước khi gắn Git tag.
 
 ## Task tiếp theo dự kiến
 
-- `P3-T2`: Đóng gói phiên bản `v1.0.0`.
+- `P3-T3`: Gắn Git tag và phát hành.
 
 ## Phụ thuộc
 
@@ -110,3 +110,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-26: Hoàn thành `P2-T3`; Phase 2 hoàn thành, task tiếp theo dự kiến là `P3-T1`.
 - 2026-07-26: Bắt đầu `P3-T1` để hoàn thiện tài liệu hướng dẫn.
 - 2026-07-26: Hoàn thành `P3-T1`; task tiếp theo dự kiến là `P3-T2`.
+- 2026-07-26: Bắt đầu `P3-T2` để đóng gói phiên bản `v1.0.0`.
+- 2026-07-26: Hoàn thành `P3-T2`; task tiếp theo dự kiến là `P3-T3`.

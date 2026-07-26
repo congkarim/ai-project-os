@@ -2,9 +2,9 @@
 
 AI Project OS là bộ khung tài liệu và quy tắc để quản lý dự án khi làm việc với Codex hoặc coding agent khác. Mục tiêu là giúp agent luôn biết bối cảnh, roadmap, task hiện tại, checklist, kế hoạch và các quyết định dài hạn ngay trong repository.
 
-Baseline tài liệu hiện tại: `v0.1.0`.
+Baseline tài liệu hiện tại: `v1.0.0`.
 
-`v0.1.0` là baseline tài liệu có thể dùng ngay: rule, tài liệu trạng thái, starter template và script cài đặt. Phase 0–2 đã hoàn thành. Package release và Git tag `v1.0.0` thuộc các task còn lại của Phase 3.
+`v1.0.0` là bản phát hành chính thức đầu tiên: rule, tài liệu trạng thái, starter template, thiết kế cài đặt và script Linux/macOS cùng Windows PowerShell. Nội dung đã được đóng gói trong repository; Git tag và GitHub Release thuộc task `P3-T3`.
 
 ## Thành phần
 
@@ -16,6 +16,9 @@ Baseline tài liệu hiện tại: `v0.1.0`.
 - `.ai/plan.md`: không gian lập kế hoạch tạm thời của task hiện tại.
 - `.ai/decisions.md`: nhật ký quyết định kiến trúc.
 - `docs/install-design.md`: thiết kế cơ chế cài đặt mà các script phải bám theo.
+- `docs/release-v1.0.0.md`: ghi chú phát hành và danh mục thành phần `v1.0.0`.
+- `VERSION`: số phiên bản hiện tại.
+- `CHANGELOG.md`: nhật ký thay đổi theo phiên bản.
 - `scripts/install.sh`: script cài đặt cho Linux/macOS.
 - `scripts/install.ps1`: script cài đặt cho Windows PowerShell.
 - `global/AGENTS.md`: mẫu rule chung để đặt tại `~/.codex/AGENTS.md`.
@@ -23,7 +26,7 @@ Baseline tài liệu hiện tại: `v0.1.0`.
 
 ## Phạm vi hiện tại
 
-Có thể dùng ngay bằng sao chép thủ công hoặc script cài đặt:
+`v1.0.0` có thể dùng ngay bằng sao chép thủ công hoặc script cài đặt:
 
 - Sao chép `global/AGENTS.md` vào cấu hình global của Codex nếu cần rule chung.
 - Sao chép `starter/AGENTS.md` và `starter/.ai/` vào repository mới, hoặc chạy `scripts/install.sh` / `scripts/install.ps1`.
@@ -36,7 +39,7 @@ Có thể dùng ngay bằng sao chép thủ công hoặc script cài đặt:
 - Cài đặt an toàn vào repository đang phát triển đã có `AGENTS.md` và `.ai/` (mặc định không ghi đè).
 - Tiếp quản phiên coding agent mới chỉ từ tài liệu trong repository.
 
-Các phần chưa thuộc bản phát hành chính thức: kiểm tra schema tự động, package release, Git tag phát hành và workflow CI/CD.
+Các phần chưa thuộc bước phát hành còn lại: Git tag, GitHub Release, kiểm tra schema tự động và workflow CI/CD. Chi tiết đóng gói nằm ở `docs/release-v1.0.0.md` và `CHANGELOG.md`.
 
 ## Nguồn sự thật
 
@@ -148,8 +151,7 @@ Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phư
 
 - Chưa có kiểm tra tự động cho schema Markdown.
 - Chưa có cơ chế đồng bộ trạng thái tự động.
-- Chưa có package release `v1.0.0`.
-- Chưa có Git tag phát hành.
+- Nội dung `v1.0.0` đã đóng gói; Git tag và GitHub Release thuộc `P3-T3`.
 - Chưa có workflow CI/CD.
 - Script PowerShell cần môi trường có `pwsh` hoặc Windows PowerShell.
 - Chưa áp đặt công nghệ cho dự án sử dụng template.
@@ -159,4 +161,4 @@ Trong khi làm task, `plan.md` có thể chứa phân tích, giả định, phư
 - Phase 0 - Foundation: khởi tạo bộ khung, rà soát schema, chốt v0.1 — `DONE`.
 - Phase 1 - Automation: thiết kế và viết script cài đặt Linux/macOS và Windows PowerShell — `DONE`.
 - Phase 2 - Validation: thử nghiệm repository mẫu, dự án đang phát triển và tiếp quản phiên mới — `DONE`.
-- Phase 3 - Release: hoàn thiện hướng dẫn, đóng gói `v1.0.0`, gắn Git tag và phát hành — đang thực hiện.
+- Phase 3 - Release: hoàn thiện hướng dẫn và đóng gói `v1.0.0` — đang thực hiện; còn gắn Git tag và phát hành.
