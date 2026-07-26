@@ -1,28 +1,26 @@
-# Plan task P2-T2
+# Plan task P2-T3
 
 File này đã được rút gọn sau khi hoàn thành task theo quy tắc reset.
 
 ## Task vừa hoàn thành
 
-- ID: `P2-T2`
-- Tên: Thử nghiệm trên một dự án đang phát triển.
-- Ngày hoàn thành: 2026-07-23.
+- ID: `P2-T3`
+- Tên: Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
+- Ngày hoàn thành: 2026-07-26.
 
 ## Phương án được chọn
 
-Dùng repository hiện tại làm dự án đang phát triển và chỉ chạy script ở chế độ an toàn: dry-run và install mặc định không `--backup`, không `--overwrite`.
+Dùng chính phiên mới trên repository hiện tại làm bằng chứng tiếp quản, bổ sung checklist 8 tiêu chí.
 
-## Kết quả thử nghiệm
+## Kết quả đánh giá
 
-- Repository bắt đầu với `git status --short` sạch.
-- Dry-run vào repository hiện tại trả mã khác `0` vì có conflict, in plan và không ghi file.
-- Install mặc định với `--yes` trả mã khác `0`, in danh sách conflict và hướng dẫn dùng `--backup` hoặc `--overwrite`.
-- `git status --short` không đổi sau dry-run và sau install mặc định.
-- `AGENTS.md` hiện tại không bị thay bằng `starter/AGENTS.md`.
-- `.ai/task.md` hiện tại không bị thay bằng `starter/.ai/task.md`.
-- Test repository đang phát triển: 11 pass, 0 fail.
+- Phiên mới đọc đủ file quản lý và `git status --short` sạch trước khi sửa.
+- Xác định đúng Phase 2, `P2-T1`/`P2-T2` đã `DONE`, task tiếp theo là `P2-T3`.
+- roadmap / task / checklist / plan thống nhất sau `P2-T2`.
+- Đủ ràng buộc ngoài phạm vi để không bắt đầu Phase 3 sớm.
+- Đánh giá tiếp quản: 8 pass, 0 fail.
 
 ## Vấn đề chuyển sang task sau
 
-- `P2-T3`: đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
+- `P3-T1`: hoàn thiện tài liệu hướng dẫn, gồm cập nhật README cho trạng thái sau Phase 1/2.
 - PowerShell runtime vẫn cần môi trường có `pwsh` hoặc Windows PowerShell.

@@ -16,9 +16,9 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 ## Trạng thái hiện tại
 
 - Phase hiện tại: Phase 2 - Validation.
-- Task hiện tại: `P2-T2` - Thử nghiệm trên một dự án đang phát triển.
+- Task hiện tại: `P2-T3` - Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
 - Trạng thái task hiện tại: `DONE`.
-- Tiến độ: đã thử nghiệm hành vi cài đặt an toàn trên repository đang phát triển hiện tại.
+- Tiến độ: Phase 2 hoàn thành; đã xác nhận phiên mới tiếp quản được từ tài liệu repository.
 
 ## Bảng các phase
 
@@ -26,7 +26,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | --- | --- | --- | --- |
 | Phase 0 | Foundation | Tạo nền tảng tài liệu và schema ban đầu | `DONE` |
 | Phase 1 | Automation | Thiết kế và viết cơ chế cài đặt | `DONE` |
-| Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `DOING` |
+| Phase 2 | Validation | Thử nghiệm trên repository mẫu và dự án thật | `DONE` |
 | Phase 3 | Release | Hoàn thiện hướng dẫn và phát hành | `TODO` |
 
 ## Các task trong từng phase
@@ -54,7 +54,7 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 | --- | --- | --- |
 | `P2-T1` | Thử nghiệm trên một repository mẫu | `DONE` |
 | `P2-T2` | Thử nghiệm trên một dự án đang phát triển | `DONE` |
-| `P2-T3` | Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới | `TODO` |
+| `P2-T3` | Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới | `DONE` |
 
 ### Phase 3 - Release
 
@@ -66,14 +66,14 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 
 ## Task hiện tại
 
-- ID: `P2-T2`
-- Tên: Thử nghiệm trên một dự án đang phát triển
+- ID: `P2-T3`
+- Tên: Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới
 - Trạng thái: `DONE`
-- Mục tiêu: xác nhận script cài đặt bảo toàn file hiện có khi áp dụng vào một repository đang phát triển đã có `AGENTS.md` và `.ai/`.
+- Mục tiêu: xác nhận phiên coding agent mới có thể tiếp quản đúng trạng thái dự án chỉ từ tài liệu trong repository.
 
 ## Task tiếp theo dự kiến
 
-- `P2-T3`: Đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
+- `P3-T1`: Hoàn thiện tài liệu hướng dẫn.
 
 ## Phụ thuộc
 
@@ -106,3 +106,5 @@ Tạo bộ khung AI Project OS có thể tái sử dụng trong nhiều reposito
 - 2026-07-23: Bắt đầu `P2-T1` để thử nghiệm trên một repository mẫu.
 - 2026-07-23: Hoàn thành `P2-T1`; task tiếp theo dự kiến là `P2-T2`.
 - 2026-07-23: Bắt đầu và hoàn thành `P2-T2` bằng thử nghiệm an toàn trên repository đang phát triển hiện tại.
+- 2026-07-26: Bắt đầu `P2-T3` để đánh giá khả năng tiếp quản sau khi mở phiên Codex mới.
+- 2026-07-26: Hoàn thành `P2-T3`; Phase 2 hoàn thành, task tiếp theo dự kiến là `P3-T1`.

@@ -1,4 +1,4 @@
-# Checklist task P2-T2
+# Checklist task P2-T3
 
 Ký hiệu:
 
@@ -12,7 +12,7 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 
 ## Chuẩn bị
 
-- [x] Xác nhận task tiếp theo từ `P2-T1` là `P2-T2`.
+- [x] Xác nhận task tiếp theo từ `P2-T2` là `P2-T3`.
 - [x] Đọc `AGENTS.md`.
 - [x] Đọc `.ai/context.md`.
 - [x] Đọc `.ai/roadmap.md`.
@@ -22,39 +22,40 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 - [x] Đọc `.ai/decisions.md`.
 - [x] Chạy `git status --short` trước khi sửa.
 
-## Thiết kế thử nghiệm
+## Thiết kế đánh giá
 
-- [x] Chốt dùng repository hiện tại làm dự án đang phát triển.
-- [x] Chốt chỉ chạy dry-run và install mặc định.
-- [x] Chốt không dùng `--backup` hoặc `--overwrite` trên repository hiện tại.
-- [x] Chốt dry-run có conflict trả mã khác `0` là hành vi hợp lệ.
+- [x] Chốt dùng phiên mới trên repository hiện tại làm bằng chứng tiếp quản.
+- [x] Chốt checklist tiêu chí tiếp quản trong `plan.md`.
+- [x] Chốt không bắt đầu Phase 3 trong task này.
+- [x] Cụ thể hóa checklist đánh giá và đóng task.
 
-## Thử nghiệm repository đang phát triển
+## Đánh giá tiếp quản
 
-- [x] Xác nhận repository bắt đầu sạch.
-- [x] Chạy dry-run vào repository hiện tại.
-- [x] Xác nhận dry-run báo conflict.
-- [x] Xác nhận dry-run không đổi `git status --short`.
-- [x] Chạy install mặc định với `--yes`.
-- [x] Xác nhận install mặc định báo conflict.
-- [x] Xác nhận install mặc định gợi ý `--backup` hoặc `--overwrite`.
-- [x] Xác nhận install mặc định không đổi `git status --short`.
-- [x] Xác nhận `AGENTS.md` không bị thay bằng starter.
-- [x] Xác nhận `.ai/task.md` không bị thay bằng starter.
+- [x] Ghi nhận bằng chứng khởi động phiên không dựa lịch sử chat.
+- [x] Xác nhận đọc đủ file bắt buộc.
+- [x] Xác nhận xác định đúng Phase 2.
+- [x] Xác nhận xác định đúng `P2-T1` và `P2-T2` đã `DONE`.
+- [x] Xác nhận xác định đúng task tiếp theo là `P2-T3`.
+- [x] Xác nhận roadmap / task / checklist / plan thống nhất sau `P2-T2`.
+- [x] Xác nhận `git status --short` sạch trước thay đổi `P2-T3`.
+- [x] Xác nhận nắm được ngoài phạm vi: không release, không Git tag, không sửa script trừ blocker.
+- [x] Xác nhận đủ thông tin để lập kế hoạch `P2-T3` ngay.
+- [x] Chấm từng tiêu chí đạt / chưa đạt và ghi phát hiện.
 
 ## Kiểm tra repository chính
 
-- [x] Kiểm tra không có file rỗng.
+- [x] Kiểm tra không có file rỗng trong phạm vi tài liệu quản lý.
 - [x] Kiểm tra Markdown cơ bản.
-- [x] Kiểm tra thống nhất `P2-T2` giữa roadmap, task và checklist.
+- [x] Kiểm tra thống nhất `P2-T3` giữa roadmap, task và checklist.
 - [x] Chạy `git diff --check`.
 - [x] Xem lại toàn bộ `git diff`.
 
 ## Cập nhật tài liệu
 
-- [x] Ghi kết quả thử nghiệm vào `.ai/task.md`.
-- [x] Chuyển `P2-T2` thành `DONE` trong `.ai/roadmap.md` khi đủ DoD.
-- [x] Đặt task tiếp theo dự kiến là `P2-T3`.
+- [x] Ghi kết quả đánh giá vào `.ai/task.md`.
+- [x] Chuyển `P2-T3` thành `DONE` trong `.ai/roadmap.md` khi đủ DoD.
+- [x] Đánh dấu Phase 2 hoàn thành khi `P2-T3` xong.
+- [x] Đặt task tiếp theo dự kiến là `P3-T1`.
 - [x] Rút gọn `.ai/plan.md` sau khi hoàn thành task.
 - [x] Cập nhật checklist sau khi kiểm thử đạt.
 
@@ -63,7 +64,7 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 - [x] Chạy `git status --short` trước khi stage.
 - [x] Stage chính xác file thuộc task, không dùng git add . trong mọi trường hợp.
 - [x] Chạy `git diff --cached`.
-- [x] Commit với thông điệp `[P2-T2] Thử nghiệm trên dự án đang phát triển`.
+- [x] Commit với thông điệp `[P2-T3] Đánh giá khả năng tiếp quản phiên mới`.
 - [x] Lấy commit hash sau commit.
 
 ## Đóng task
@@ -71,12 +72,12 @@ Trước khi đóng task, không được còn `[~]` hoặc `[!]`.
 - [x] Xác nhận Definition of Done đã đủ.
 - [x] Xác nhận không còn `[~]` hoặc `[!]`.
 - [x] Xác nhận không còn mục bắt buộc `[ ]`.
-- [x] Xác nhận không bắt đầu `P2-T3`.
+- [x] Xác nhận không bắt đầu `P3-T1`.
 
 ## Chuẩn bị handoff
 
-- [x] Báo cáo thử nghiệm đã chạy.
-- [x] Báo cáo kết quả thử nghiệm.
+- [x] Báo cáo đánh giá đã chạy.
+- [x] Báo cáo kết quả đánh giá.
 - [x] Báo cáo commit hash.
 - [x] Báo cáo task tiếp theo.
 - [x] Báo cáo giới hạn hoặc vấn đề còn lại nếu có.
